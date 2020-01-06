@@ -12,4 +12,5 @@ $Rotas->onError("404", function (){
 //$Rotas->onGroup("Principal","GET","a","index");
 
 // -- Rotas sem grupo
+//SITE EXTERNO
 $Rotas->on("GET","","Principal::index");
