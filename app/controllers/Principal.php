@@ -22,29 +22,17 @@ class Principal extends CI_controller
     }
 
 
-    public function index()
+    /**
+     * Método responsável por exiber uma página de error
+     * 404. Esse método será chamado automaticamente sempre
+     * que um usuário acessar uma rota restrita.
+     */
+    public function error404()
     {
+        // Chama a view do erro 404
+        $this->view("site/erro-404");
 
-        $dados = [
-            "seo" => [
-                "description" => "A Momesso Indústria de Máquina é uma empresa com mais de 50 anos de mercado. Fundada em 18 de junho de 1962, sua atividade principal era a manutenção de máquinas de beneficiamento de algodão e óleo, junto com fabricação de tanques e braços de pulverizadores para agricultura sob encomenda, na região de Birigui, interior de São Paulo.",
-                "keywords" => "maquinas industriais, maquinas momesso, maquinas agricolas, Maquinário agrícola, Máquinas e Implementos Agrícolas",
-                "title" => "Momesso | Indústria de Máquinas"
-            ],
-            "seoFacebook" => [
-                "url" => BASE_URL,
-                "title" => "Momesso | Indústria de Máquinas",
-                "site_name" => SITE_NOME,
-                "description" => "A Momesso Indústria de Máquina é uma empresa com mais de 50 anos de mercado. Fundada em 18 de junho de 1962, sua atividade principal era a manutenção de máquinas de beneficiamento de algodão e óleo, junto com fabricação de tanques e braços de pulverizadores para agricultura sob encomenda, na região de Birigui, interior de São Paulo.",
-                "image" => BASE_STORANGE.'assets/img/thumb-face.png',
-                "image_type" => "image/png",
-
-            ],
-            "teste" => "jdlnfnidsasdas"
-        ];
-
-       $this->view("site/index",$dados);
-    }
+    } // End >> fun>::error404()
 
 
 } // END::Class Principal
