@@ -22,14 +22,17 @@ class Principal extends CI_controller
     }
 
 
-    public function index()
+    /**
+     * Método responsável por exiber uma página de error
+     * 404. Esse método será chamado automaticamente sempre
+     * que um usuário acessar uma rota restrita.
+     */
+    public function error404()
     {
-        //Passando o SEO e o SMO para a pagina
-        $dados = $this->getSEO();
-
-
-       $this->view("site/index",$dados);
-    }
+        // Chama a view do erro 404
+        $this->view("site/erro-404");
+      
+    } // End >> fun>::error404()
 
 
 } // END::Class Principal
