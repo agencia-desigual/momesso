@@ -98,7 +98,7 @@ class Controller
         // Monta o array padrão
         $dados = [
             "seo" => [
-                "title" => SITE_NOME,
+                "title" => "Momesso | Indústria de Máquinas",
                 "description" => "A Momesso Indústria de Máquina é uma empresa com mais de 50 anos de mercado. 
                                   Fundada em 18 de junho de 1962, sua atividade principal era a manutenção de máquinas 
                                   de beneficiamento de algodão e óleo, junto com fabricação de tanques e braços de 
@@ -117,7 +117,7 @@ class Controller
                 "image" => BASE_STORANGE.'assets/img/thumb-face.png',
                 "image_type" => "image/png",
                 "image_width" => "800",
-                "image_height" => "800"
+                "image_height" => "600"
             ]
         ];
 

@@ -1,0 +1,44 @@
+@import 'fontes.css';
+
+*{
+    transition: 0.5s;
+}
+
+html,body
+{
+    margin: 0px;
+    padding: 0px;
+    font-family: "Draft B teste";
+    font-weight: 500;
+}
+
+/*PERSONALIZAÇÃO DO MENU PRINCIPAL*/
+.bg-laranja
+{
+    background-color: #f47920 !important;
+    padding: 15px 0px;
+}
+
+.menu-itens
+{
+    color: #fff !important;
+    text-decoration: none !important;
+    font-weight: bold;
+    padding: 0px 10px;
+}
+
+
+
+
+
+
+
+.centraliza-itens
+{
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    text-align: center;
+}
