@@ -28,7 +28,8 @@ class Principal extends CI_controller
         $dados = [
             "seo" => [
                 "description" => "A Momesso Indústria de Máquina é uma empresa com mais de 50 anos de mercado. Fundada em 18 de junho de 1962, sua atividade principal era a manutenção de máquinas de beneficiamento de algodão e óleo, junto com fabricação de tanques e braços de pulverizadores para agricultura sob encomenda, na região de Birigui, interior de São Paulo.",
-                "keywords" => "maquinas industriais, maquinas momesso, maquinas agricolas, Maquinário agrícola, Máquinas e Implementos Agrícolas"
+                "keywords" => "maquinas industriais, maquinas momesso, maquinas agricolas, Maquinário agrícola, Máquinas e Implementos Agrícolas",
+                "title" => "Momesso | Indústria de Máquinas"
             ],
             "seoFacebook" => [
                 "url" => BASE_URL,
