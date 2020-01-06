@@ -16,26 +16,46 @@
     <meta name="apple-mobile-web-app-status-bar-style" content="#f47920">
     <meta name="msapplication-navbutton-color" content="#f47920">
 
-    <!-- SEO Facebook -->
+    <!-- SMO Facebook -->
     <meta property="og:locale" content="pt_BR">
-    <meta property="og:url" content="<?= $seoFacebook['url'] ?>">
-    <meta property="og:title" content="<?= $seoFacebook['title'] ?>">
-    <meta property="og:site_name" content="<?= $seoFacebook['site_name'] ?>">
-    <meta property="og:description" content="<?= $seoFacebook['description'] ?>">
-    <meta property="og:image" content="<?= $seoFacebook['image'] ?>">
-    <meta property="og:image:type" content="<?= $seoFacebook['image_type'] ?>">
-    <meta property="og:image:width" content="800">
-    <meta property="og:image:height" content="600">
+    <meta property="og:url" content="<?= $smo['url'] ?>">
+    <meta property="og:title" content="<?= $smo['title'] ?>">
+    <meta property="og:site_name" content="<?= $smo['site_name'] ?>">
+    <meta property="og:description" content="<?= $smo['description'] ?>">
+    <meta property="og:image" content="<?= $smo['image'] ?>">
+    <meta property="og:image:type" content="<?= $smo['image_type'] ?>">
+    <meta property="og:image:width" content="<?= $smo['image_width'] ?>">
+    <meta property="og:image:height" content="<?= $smo['image_height'] ?>">
 
     <!-- CSS Bootstrap  -->
-    <link rel="stylesheet" href="<?= BASE_STORANGE.'assets/css/bootstrap.min.css' ?>">
+    <link rel="stylesheet" href="<?= BASE_URL.'arquivos/assets/css/bootstrap.min.css' ?>">
 
     <!-- CSS Personalizado -->
-    <link rel="stylesheet" href="<?= BASE_STORANGE.'assets/css/estilo.css' ?>">
+    <link rel="stylesheet" href="<?= BASE_URL.'arquivos/assets/css/estilo.css' ?>">
 
     <!-- CSS Responsivo -->
-    <link rel="stylesheet" href="<?= BASE_STORANGE.'assets/css/responsivo.css' ?>">
+    <link rel="stylesheet" href="<?= BASE_URL.'arquivos/assets/css/responsivo.css' ?>">
 
     <title><?= $seo['title'] ?></title>
 </head>
 <body>
+
+<div class="bg-laranja">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4">
+                <img src="<?= BASE_URL; ?>arquivos/assets/img/logo_branco.png">
+            </div>
+            <div class="col-md-8">
+                <div style="padding: 20px 0px; text-align: right;">
+                    <a href="#" class="menu-itens">HOME</a>
+                    <a href="#" class="menu-itens">EMPRESA</a>
+                    <a href="#" class="menu-itens">PRODUTOS</a>
+                    <a href="#" class="menu-itens">CONTATO</a>
+                    <a href="#" class="menu-itens" style="padding: 0px 3px; vertical-align: super"><img width="35px" src="<?= BASE_URL; ?>arquivos/assets/img/icone-face.png"></a>
+                    <a href="#" class="menu-itens" style="padding: 0px 3px; vertical-align: super"><img width="35px" src="<?= BASE_URL; ?>arquivos/assets/img/icone-youtube.png"></a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

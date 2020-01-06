@@ -31,7 +31,7 @@ class Principal extends CI_controller
     {
         // Chama a view do erro 404
         $this->view("site/erro-404");
-
+      
     } // End >> fun>::error404()
 
 
