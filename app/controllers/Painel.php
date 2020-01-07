@@ -5,6 +5,9 @@ namespace Controller;
 
 // Importações
 use Helper\Seguranca;
+use Model\Categoria;
+use Model\Noticia;
+use Model\Produto;
 use Model\Usuario;
 use Sistema\Controller;
 
@@ -82,9 +85,48 @@ class Painel extends Controller
      */
     public function dashboard()
     {
+        // Seguranca
+        $this->ObjSeguranca->security();
+
         // Variaveis
         $dados = null;
 
+        // Models
+        $ObjCategoria = new Categoria();
+        $ObjProduto = new Produto();
+        $ObjNoticia = new Noticia();
+        $ObjUsuario = $this->ObjModelUsuario;
+
+        // As ultimas noticias
+        $noticias = $ObjNoticia->get(null, "id_noticia DESC", 5)
+            ->fetchAll(\PDO::FETCH_OBJ);
+
+        // Os ultimos produtos
+        $produtos = $ObjProduto->get(null, "id_produto DESC", 5)
+            ->fetchAll(\PDO::FETCH_OBJ);
+
+        // Percorre os produtos
+        foreach ($produtos as $prod)
+        {
+            // Busca a categoria do produto
+            $cat = $ObjCategoria->get(["id_categoria" => $prod->id_categoria])
+                ->fetch(\PDO::FETCH_OBJ);
+
+            // Add o nome da categoria ao produto
+            $prod->categoria = $cat->nome;
+        }
+
+        // Array da view
+        $dados = [
+            "total" => [
+                "categorias" => $ObjCategoria->get()->rowCount(),
+                "produtos" => $ObjProduto->get()->rowCount(),
+                "noticias" => $ObjNoticia->get()->rowCount(),
+                "usuarios" => $ObjUsuario->get()->rowCount()
+            ],
+            "produtos" => $produtos,
+            "noticias" => $noticias
+        ];
 
         // Chama  a view
         $this->view("painel/dashboard", $dados);
@@ -115,10 +157,10 @@ class Painel extends Controller
         $post = $_POST;
 
         // Verifica se informou os dados obrigatorios
-        if(empty($post["email"]) && empty($post["senha"]))
+        if(!empty($post["email"]) && !empty($post["senha"]))
         {
             // Criptografa a senha
-            $post["senah"] = md5($post["senha"]);
+            $post["senha"] = md5($post["senha"]);
 
             // Deixa o email tudo minusculo e remove os espaços
             $post["email"] = strtolower($post["email"]);
