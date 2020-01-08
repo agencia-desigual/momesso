@@ -11,12 +11,13 @@ $('#campoNome').on('keyup', function() {
     var string = document.getElementById("campoNome").value;
 
     // Limpa a string
-    string = Global.limparString(string);
+    Global.limparString(string).then((result) => {
 
-    // Adiciona ao campo slug
-    document.getElementById("slug").value = string;
-
+        // Adiciona ao campo slug
+        document.getElementById("slug").value = result;
+    });
 });
+
 
 
 /**
@@ -59,6 +60,104 @@ $(".deletar").on("click", function () {
                 Global.config.table.row("#tb_" + id).remove().draw(false);
             });
         }
+    });
+
+    // Não carrega mesmo
+    return false;
+});
+
+
+
+/**
+ * Método responsável por enviar uma solicitação
+ * de adição de um nova categoria.
+ */
+$("#formInsert").on("submit", function(){
+
+    // Não atualiza
+    event.preventDefault();
+
+    // Bloqueia o botão
+    $("#btnSalva").prop("disabled", true);
+
+    // Recupera os dados do formulário
+    var form = new FormData(this);
+
+    // Pega o slug
+    var slug = form.get("slug");
+
+    // Para garantir que não vai ter problema, limpa
+    Global.limparString(slug).then((result) => {
+
+        // Add o slug
+        form.set("slug", result);
+
+        // Url
+        var url = Global.config.url + "categoria/insert";
+
+        // Faz a requisição
+        Global.enviaApi("POST", url, form).then((data) => {
+
+            // Avisa que deu certo
+            Global.setSuccess(data.mensagem);
+
+            // Remove a imagem
+            $(".dropify-clear").click();
+
+            // Limpa o formulário
+            $('#formInsert').each (function(){
+                this.reset();
+            });
+        });
+
+        // Desbloqueia o botão
+        $("#btnSalva").prop("disabled", false);
+
+    });
+
+    // Não carrega mesmo
+    return false;
+});
+
+
+
+/**
+ * Método responsável por enviar uma solicitação
+ * de alteração de um categoria existente.
+ */
+$("#formAltera").on("submit", function(){
+
+    // Não atualiza
+    event.preventDefault();
+
+    // Bloqueia o botão
+    $("#btnAltera").prop("disabled", true);
+
+    // Recupera os dados do formulário
+    var form = new FormData(this);
+
+    // Pega o slug
+    var slug = form.get("slug");
+
+    // Para garantir que não vai ter problema, limpa
+    Global.limparString(slug).then((result) => {
+
+        // Add o slug
+        form.set("slug", result);
+
+        // Url
+        var url = Global.config.url + "categoria/update/" + $(this).data("id");
+
+        // Faz a requisição
+        Global.enviaApi("POST", url, form).then((data) => {
+
+            // Avisa que deu certo
+            Global.setSuccess(data.mensagem);
+        });
+
+        // Desbloqueia o botão
+        $("#btnAltera").prop("disabled", false);
+
     });
 
     // Não carrega mesmo

@@ -216,61 +216,65 @@ function formatMoney(number, places, symbol, thousand, decimal)
  * string limpa.
  * -----------------------------------------------------
  * @param string
- * @return {string}
+ * @return {Promise<any>}
  */
 function limparString(string) {
-    // Recupera a string
-    var v1 = string;
 
-    // Caracteres a ser substituidos
-    var find = ["ã", "à", "á", "ä", "â", "è", "é", "ë", "ê", "ì", "í", "ï", "î", "ò", "ó", "ö", "ô", "ù", "ú", "ü", "û", "ñ", "ç"];
-    "à", "á", "ä", "â", "è", "é", "ë", "ê", "ì", "í", "ï", "î", "ò", "ó", "ö", "ô", "ù", "ú", "ü", "û", "ñ", "ç"
-    var replace = ["a", "a", "a", "a", "a", "e", "e", "e", "e", "i", "i", "i", "i", "o", "o", "o", "o", "u", "u", "u", "u", "n", "c"];
+    return new Promise(function(resolve){
 
-    // Percorre e substitui os caracteres
-    for (var i = 0; i < find.length; i++) {
-        v1 = v1.replace(new RegExp(find[i], 'gi'), replace[i]);
-    }
+        // Recupera a string
+        var v1 = string;
 
-    // Remove os especiais
-    v1 = v1.replace("?", "");
-    v1 = v1.replace("!", "");
-    v1 = v1.replace("/", "");
-    v1 = v1.replace("\"", "");
-    v1 = v1.replace("]", "");
-    v1 = v1.replace("[", "");
-    v1 = v1.replace(")", "");
-    v1 = v1.replace("(", "");
-    v1 = v1.replace("^", "");
-    v1 = v1.replace(":", "");
-    v1 = v1.replace(";", "");
-    v1 = v1.replace(",", "");
-    v1 = v1.replace(".", "");
-    v1 = v1.replace("_", "");
-    v1 = v1.replace("º", "");
-    v1 = v1.replace("ª", "");
-    v1 = v1.replace("#", "");
-    v1 = v1.replace("@", "");
-    v1 = v1.replace("+", "");
-    v1 = v1.replace("%", "");
-    v1 = v1.replace("$", "");
-    v1 = v1.replace("*", "");
-    v1 = v1.replace("£", "");
-    v1 = v1.replace("|", "");
-    v1 = v1.replace("ÿ", "");
-    v1 = v1.replace('"', "");
-    v1 = v1.replace("'", "");
-    v1 = v1.replace("`", "");
-    v1 = v1.replace("´", "");
+        // Caracteres a ser substituidos
+        var find = ["ã", "à", "á", "ä", "â", "è", "é", "ë", "ê", "ì", "í", "ï", "î", "ò", "ó", "ö", "ô", "ù", "ú", "ü", "û", "ñ", "ç"];
+        "à", "á", "ä", "â", "è", "é", "ë", "ê", "ì", "í", "ï", "î", "ò", "ó", "ö", "ô", "ù", "ú", "ü", "û", "ñ", "ç"
+        var replace = ["a", "a", "a", "a", "a", "e", "e", "e", "e", "i", "i", "i", "i", "o", "o", "o", "o", "u", "u", "u", "u", "n", "c"];
 
-    // Remove os espaços por ifem
-    var desired = v1.replace(/\s+/g, '-');
+        // Percorre e substitui os caracteres
+        for (var i = 0; i < find.length; i++) {
+            v1 = v1.replace(new RegExp(find[i], 'gi'), replace[i]);
+        }
 
-    // Deixa tudo minusculo
-    desired = desired.toLowerCase();
+        // Remove os especiais
+        v1 = v1.replace("?", "");
+        v1 = v1.replace("!", "");
+        v1 = v1.replace("/", "");
+        v1 = v1.replace("\"", "");
+        v1 = v1.replace("]", "");
+        v1 = v1.replace("[", "");
+        v1 = v1.replace(")", "");
+        v1 = v1.replace("(", "");
+        v1 = v1.replace("^", "");
+        v1 = v1.replace(":", "");
+        v1 = v1.replace(";", "");
+        v1 = v1.replace(",", "");
+        v1 = v1.replace(".", "");
+        v1 = v1.replace("_", "");
+        v1 = v1.replace("º", "");
+        v1 = v1.replace("ª", "");
+        v1 = v1.replace("#", "");
+        v1 = v1.replace("@", "");
+        v1 = v1.replace("+", "");
+        v1 = v1.replace("%", "");
+        v1 = v1.replace("$", "");
+        v1 = v1.replace("*", "");
+        v1 = v1.replace("£", "");
+        v1 = v1.replace("|", "");
+        v1 = v1.replace("ÿ", "");
+        v1 = v1.replace('"', "");
+        v1 = v1.replace("'", "");
+        v1 = v1.replace("`", "");
+        v1 = v1.replace("´", "");
 
-    // Retorna a string limpa
-    return desired;
+        // Remove os espaços por ifem
+        var desired = v1.replace(/\s+/g, '-');
+
+        // Deixa tudo minusculo
+        desired = desired.toLowerCase();
+
+        // Retorna a string limpa
+        resolve(desired);
+    });
 
 } // End >> fun::limparString()
 
