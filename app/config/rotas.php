@@ -26,5 +26,7 @@ $Rotas->on("GET","painel","Painel::dashboard");
 // Categorias ==============
 $Rotas->on("GET","painel/categorias","Categoria::painel_exibirTodos");
 $Rotas->on("GET","painel/categorias/adicionar","Categoria::painel_adicionar");
+$Rotas->on("GET","painel/categorias/alterar/{p}","Categoria::painel_alterar");
 $Rotas->on("POST","categoria/insert","Categoria::jx_insert");
+$Rotas->on("POST","categoria/update/{p}","Categoria::jx_update");
 $Rotas->on("DELETE","categoria/delete/{p}","Categoria::jx_delete");
