@@ -21,6 +21,12 @@ class Principal extends CI_controller
         parent::__construct();
     }
 
+    public function index()
+    {
+        // Chama a view da home
+        $this->view("site/index");
+    }
+
 
     /**
      * Método responsável por exiber uma página de error
