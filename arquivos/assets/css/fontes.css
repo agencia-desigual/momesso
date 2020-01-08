@@ -1,6 +1,6 @@
 @font-face
 {
-    font-family: "Draft B teste";
+    font-family: "Draft B";
     src: url('fonte/draft-b-regular.ttf');
     font-weight: normal;
 }
@@ -16,5 +16,12 @@
 {
     font-family: "Draft B";
     src: url('fonte/draft-b-bold.ttf');
+    font-weight: 900;
+}
+
+@font-face
+{
+    font-family: "Draft B";
+    src: url('fonte/draft-b-bolder.ttf');
     font-weight: bold;
 }

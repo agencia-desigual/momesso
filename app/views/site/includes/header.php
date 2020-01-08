@@ -40,6 +40,7 @@
 </head>
 <body>
 
+<!-- MENU DESKTOP -->
 <div class="bg-laranja">
     <div class="container">
         <div class="row">
@@ -49,8 +50,17 @@
             <div class="col-md-8">
                 <div style="padding: 20px 0px; text-align: right;">
                     <a href="#" class="menu-itens">HOME</a>
-                    <a href="#" class="menu-itens">EMPRESA</a>
-                    <a href="#" class="menu-itens">PRODUTOS</a>
+                    <span class="menu-drop-hover" style="position: relative">
+                        <a href="#" class="menu-itens">EMPRESA <img width="10px" src="<?= BASE_URL; ?>arquivos/assets/img/dropdown.png"></a>
+                    </span>
+                    <div style="position: absolute; background-color: #323232; display: none">
+                        <a href="#" class="menu-itens">CONTATO</a><br>
+                        <a href="#" class="menu-itens">CONTATO</a><br>
+                        <a href="#" class="menu-itens">CONTATO</a><br>
+                    </div>
+                    <span class="menu-drop-hover">
+                        <a href="#" class="menu-itens">PRODUTOS <img width="10px" src="<?= BASE_URL; ?>arquivos/assets/img/dropdown.png"></a>
+                    </span>
                     <a href="#" class="menu-itens">CONTATO</a>
                     <a href="#" class="menu-itens" style="padding: 0px 3px; vertical-align: super"><img width="35px" src="<?= BASE_URL; ?>arquivos/assets/img/icone-face.png"></a>
                     <a href="#" class="menu-itens" style="padding: 0px 3px; vertical-align: super"><img width="35px" src="<?= BASE_URL; ?>arquivos/assets/img/icone-youtube.png"></a>
@@ -59,3 +69,7 @@
         </div>
     </div>
 </div>
+<!-- FIM MENU DESKTOP -->
+
+<!-- MENU MOBILE -->
+<!-- FIM MENU MOBILE -->

@@ -1,16 +1,34 @@
 @import 'fontes.css';
 
 *{
-    transition: 0.5s;
+    transition: 0.3s;
 }
 
 html,body
 {
     margin: 0px;
     padding: 0px;
-    font-family: "Draft B teste";
-    font-weight: 500;
+    font-family: "Draft B";
+    font-weight: normal;
 }
+
+footer
+{
+    background-color: #323232;
+}
+
+.centraliza-itens
+{
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    flex-wrap: wrap;
+    text-align: center;
+}
+
+
+
+
 
 /*PERSONALIZAÇÃO DO MENU PRINCIPAL*/
 .bg-laranja
@@ -27,18 +45,275 @@ html,body
     padding: 0px 10px;
 }
 
-
-
-
-
-
-
-.centraliza-itens
+.footer-itens
 {
-    display: flex;
-    align-items: center;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: center;
-    text-align: center;
+    color: #5b5b5b !important;
+    text-decoration: none !important;
+    font-weight: 800;
+    padding: 0px 10px;
 }
+
+.footer-itens:hover
+{
+    color: #f47920 !important;
+}
+
+
+.menu-drop-hover:hover
+{
+    background-color: #424040;
+    padding: 43px 0px 38px;
+}
+
+
+
+
+
+/*PERSONALIZAÇÃO DO BANNER PRINCIPAL DO SITE*/
+.banner-principal
+{
+    height: calc(100vh - 105px);
+    width: 100%;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+
+.titulo-banner-principal
+{
+    color: #fff;
+    text-align: left;
+    font-size: 30px;
+    font-weight: 500;
+    line-height: 35px;
+}
+
+.sub-titulo-banner-principal
+{
+    text-align: left;
+    color: #fff;
+}
+
+.btn-banner{
+
+    background-color: #fff;
+    color: #f47920;
+    font-weight: bold;
+    text-align: center;
+    width: 190px;
+
+}
+
+.altura-80
+{
+    height: 80vh;
+}
+
+
+
+
+
+/*PERSONALIZAÇÃO DA PARTE INSTITUCIONAL DO SITE*/
+.titulo-institucional
+{
+    font-weight: bold;
+    font-size: 35px;
+    line-height: 40px;
+}
+
+.institucional-descricao
+{
+    color: #8d8d8d;
+}
+
+.btn-conheca-institucional
+{
+    background-color: #f47920;
+    color: #fff;
+    font-weight: bold;
+    text-align: center;
+    width: 190px;
+}
+
+.btn-conheca-institucional:hover
+{
+    background-color: #b95c19;
+    color: #fff;
+    font-weight: bold;
+    text-align: center;
+    width: 190px;
+}
+
+
+
+
+
+/*PERSONALIZAÇÃO DA PARTE DE NOTICIAS NA HOME*/
+.noticias-home
+{
+    background-color: #f7f7f7;
+    padding: 50px 0px;
+}
+
+.btn-todas-noticias
+{
+    background-color: transparent;
+    border: 2px solid;
+    color: #f47920;
+    font-weight: 900;
+}
+
+.btn-todas-noticias:hover
+{
+    background-color: #f47920;
+    border: 2px solid #f47920;
+    color: #fff;
+    font-weight: 900;
+}
+
+.card-noticias
+{
+    min-height: 400px;
+    background-color: #ffff;
+    border-radius: 15px;
+    border: 1px solid #b2b2b2;
+}
+
+.thumb-noticias
+{
+    height: 200px;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.titulo-noticias h4
+{
+    font-weight: 800;
+    text-transform: uppercase;
+    font-size: 15px;
+}
+
+.btn-leia-mais
+{
+    background-color: transparent;
+    border: 2px solid;
+    color: #f47920;
+    font-weight: 900;
+}
+
+.btn-leia-mais:hover
+{
+    background-color: #f47920;
+    border: 2px solid #f47920;
+    color: #fff;
+    font-weight: 900;
+}
+
+.card-noticias:hover
+{
+    transform: scale(1.1);
+}
+
+
+
+
+
+/*PERSONALIZAÇÃO DA PARTE DE PRODUTOS NA HOME*/
+.produtos-agro-plastico
+{
+    background-color: #FFF;
+    padding: 50px 0px;
+}
+
+.card-categoria-produto
+{
+    background-color: #f47920;
+    padding: 15px 25px;
+    border-radius: 10px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    min-height: 270px;
+}
+
+.card-categoria-titulo h4
+{
+    color: #fff;
+    font-weight: 800;
+    text-transform: uppercase;
+    font-size: 35px;
+}
+
+.card-categoria-titulo p
+{
+    color: #fff;
+    font-weight: 500;
+    width: 60%;
+}
+
+.btn-card-categoria-produto
+{
+    background-color: transparent;
+    border: 2px solid #FFF;
+    color: #FFF;
+    font-weight: 900;
+}
+
+.btn-card-categoria-produto:hover
+{
+    background-color: #FFFF;
+    border: 2px solid #FFF;
+    color: #f47920;
+    font-weight: 900;
+}
+
+.card-produto-home
+{
+    border: 1px solid #b2b2b2;
+    border-radius: 5px;
+    padding: 25px;
+}
+
+.card-produto-home img
+{
+    width: 100%;
+    margin-bottom: 25px;
+}
+
+.btn-card-produto-home
+{
+    background-color: #f47920;
+    border: 2px solid #f47920;
+    color: #FFF;
+    font-weight: 900;
+}
+
+.btn-card-produto-home:hover
+{
+    background-color: #b95c19;
+    border: 2px solid #b95c19;
+    color: #fff;
+}
+
+
+
+
+
+/*
+==================================================
+               SCROOL PERSONALIZADO
+==================================================
+*/
+
+/* width */
+::-webkit-scrollbar { width: 10px; }
+
+/* Track */
+::-webkit-scrollbar-track { background: #f1f1f1; }
+
+/* Handle */
+::-webkit-scrollbar-thumb { background: #f47920; }
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover { background: #b95c19; }
