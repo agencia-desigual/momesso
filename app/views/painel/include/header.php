@@ -16,6 +16,11 @@
     <link href="<?= BASE_URL; ?>arquivos/painel/js/plugins/@fortawesome/fontawesome-free/css/all.min.css"
           rel="stylesheet"/>
 
+    <!-- Plugins -->
+    <link rel="stylesheet" href="<?= BASE_URL; ?>arquivos/plugins/datatables/css/css.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.12/summernote-lite.css" rel="stylesheet">
+    <link rel="stylesheet" href="<?= BASE_URL; ?>arquivos/plugins/dropify/css/dropify.css">
+
     <!-- CSS Files -->
     <link href="<?= BASE_URL; ?>arquivos/painel/css/argon-dashboard.css?v=1.1.1" rel="stylesheet"/>
 </head>

@@ -3,8 +3,8 @@ import Session from "./main/Session.js"
 // Dados importantes
 var Dados = {
     "url": "http://localhost/git/momesso/",
+    "table": $('.datatable').DataTable()
 }
-
 
 
 // Mascaras
@@ -14,7 +14,6 @@ $(".maskCPF").mask("999.999.999-99");
 $(".maskCNPJ").mask("99.999.999/9999-99");
 $(".maskTel").mask("(99) 9999-9999");
 $(".maskCel").mask("(99) 99999-9999");
-
 
 
 /**
@@ -183,6 +182,8 @@ function calculaData(data)
 } // End >> Fun::calculaData()
 
 
+
+
 /**
  * Método responsável por formatar um determinado numero
  * no pádrão de dinheiro.
@@ -209,6 +210,71 @@ function formatMoney(number, places, symbol, thousand, decimal)
 }
 
 
+/**
+ * Método responsável por receber um string, remover os
+ * caracteres especiais e acentos. E retornar a nova
+ * string limpa.
+ * -----------------------------------------------------
+ * @param string
+ * @return {string}
+ */
+function limparString(string) {
+    // Recupera a string
+    var v1 = string;
+
+    // Caracteres a ser substituidos
+    var find = ["ã", "à", "á", "ä", "â", "è", "é", "ë", "ê", "ì", "í", "ï", "î", "ò", "ó", "ö", "ô", "ù", "ú", "ü", "û", "ñ", "ç"];
+    "à", "á", "ä", "â", "è", "é", "ë", "ê", "ì", "í", "ï", "î", "ò", "ó", "ö", "ô", "ù", "ú", "ü", "û", "ñ", "ç"
+    var replace = ["a", "a", "a", "a", "a", "e", "e", "e", "e", "i", "i", "i", "i", "o", "o", "o", "o", "u", "u", "u", "u", "n", "c"];
+
+    // Percorre e substitui os caracteres
+    for (var i = 0; i < find.length; i++) {
+        v1 = v1.replace(new RegExp(find[i], 'gi'), replace[i]);
+    }
+
+    // Remove os especiais
+    v1 = v1.replace("?", "");
+    v1 = v1.replace("!", "");
+    v1 = v1.replace("/", "");
+    v1 = v1.replace("\"", "");
+    v1 = v1.replace("]", "");
+    v1 = v1.replace("[", "");
+    v1 = v1.replace(")", "");
+    v1 = v1.replace("(", "");
+    v1 = v1.replace("^", "");
+    v1 = v1.replace(":", "");
+    v1 = v1.replace(";", "");
+    v1 = v1.replace(",", "");
+    v1 = v1.replace(".", "");
+    v1 = v1.replace("_", "");
+    v1 = v1.replace("º", "");
+    v1 = v1.replace("ª", "");
+    v1 = v1.replace("#", "");
+    v1 = v1.replace("@", "");
+    v1 = v1.replace("+", "");
+    v1 = v1.replace("%", "");
+    v1 = v1.replace("$", "");
+    v1 = v1.replace("*", "");
+    v1 = v1.replace("£", "");
+    v1 = v1.replace("|", "");
+    v1 = v1.replace("ÿ", "");
+    v1 = v1.replace('"', "");
+    v1 = v1.replace("'", "");
+    v1 = v1.replace("`", "");
+    v1 = v1.replace("´", "");
+
+    // Remove os espaços por ifem
+    var desired = v1.replace(/\s+/g, '-');
+
+    // Deixa tudo minusculo
+    desired = desired.toLowerCase();
+
+    // Retorna a string limpa
+    return desired;
+
+} // End >> fun::limparString()
+
+
 // Retorno para os demais arquivos
 export default (() => {
 
@@ -220,7 +286,8 @@ export default (() => {
         setError: error,
         setSuccess: success,
         calculaData: calculaData,
-        formatMoney: formatMoney
+        formatMoney: formatMoney,
+        limparString: limparString
     };
 
 })();
