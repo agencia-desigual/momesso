@@ -44,3 +44,12 @@ $Rotas->on("DELETE","produto/delete/{p}","Produto::jx_delete");
 $Rotas->on("POST","imagem/insert/{p}","Imagem::jx_insert");
 $Rotas->on("DELETE","imagem/delete/{p}","Imagem::jx_delete");
 $Rotas->on("POST","imagem/update/{p}","Imagem::jx_update");
+
+
+// Noticia =================
+$Rotas->on("GET","painel/noticias","Noticia::painel_exibirTodos");
+$Rotas->on("GET","painel/noticias/adicionar","Noticia::painel_adicionar");
+$Rotas->on("GET","painel/noticias/alterar/{p}","Noticia::painel_alterar");
+$Rotas->on("POST","noticia/insert","Noticia::jx_insert");
+$Rotas->on("POST","noticia/update/{p}","Noticia::jx_update");
+$Rotas->on("DELETE","noticia/delete/{p}","Noticia::jx_delete");
