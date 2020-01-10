@@ -22,9 +22,9 @@
 
     <!-- NOTICIAS -->
     <div class="">
-        <div style="padding: 60px 0px;" class="container">
+        <div class="container">
 
-            <div class="row">
+            <div class="row margin-conteudo">
 
                 <!-- CATEGORIAS -->
                 <div class="col-md-4">
@@ -78,7 +78,7 @@
                             <br>
                             <div class="row produtos">
                                 <div class="col-md-12">
-                                    <h3>Centro de Tratamento de Sementes</h3>
+                                    <h3>Características do produto:</h3>
                                     <hr style="border-top: 2px solid #ccc;">
                                 </div>
                                 <p class="container">

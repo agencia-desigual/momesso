@@ -21,49 +21,47 @@
     <!-- FIM BREADCUMP -->
 
     <!-- NOTICIAS -->
-    <div class="noticias-home">
-        <div style="padding: 60px 0px;" class="container">
+    <div class="container">
 
-            <div class="row">
-                <div class="col-md-4">
-                    <div class="card-noticias">
-                        <div class="thumb-noticias" style="background-image: url('<?= BASE_URL; ?>arquivos/assets/img/noticias/thumb-noticia-1.png');"></div>
-                        <div style="padding: 10px 25px;">
-                            <div class="titulo-noticias">
-                                <h4>momesso terá participação de destaque no xxxvi ciclo em reuniões conjuntas da csm-pr focando nos beneficios da alta qualidade.</h4>
-                            </div>
-                            <br>
-                            <button type="button" class="btn btn-leia-mais">LEIA MAIS</button>
+        <div class="row margin-conteudo">
+            <div class="col-md-4">
+                <div class="card-noticias">
+                    <div class="thumb-noticias" style="background-image: url('<?= BASE_URL; ?>arquivos/assets/img/noticias/thumb-noticia-1.png');"></div>
+                    <div style="padding: 10px 25px;">
+                        <div class="titulo-noticias">
+                            <h4>momesso terá participação de destaque no xxxvi ciclo em reuniões conjuntas da csm-pr focando nos beneficios da alta qualidade.</h4>
                         </div>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="card-noticias">
-                        <div class="thumb-noticias" style="background-image: url('<?= BASE_URL; ?>arquivos/assets/img/noticias/thumb-noticia-1.png');"></div>
-                        <div style="padding: 10px 25px;">
-                            <div class="titulo-noticias">
-                                <h4>momesso terá participação de destaque no xxxvi ciclo em reuniões conjuntas da csm-pr focando nos beneficios da alta qualidade.</h4>
-                            </div>
-                            <br>
-                            <button type="button" class="btn btn-leia-mais">LEIA MAIS</button>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="card-noticias">
-                        <div class="thumb-noticias" style="background-image: url('<?= BASE_URL; ?>arquivos/assets/img/noticias/thumb-noticia-1.png');"></div>
-                        <div style="padding: 10px 25px;">
-                            <div class="titulo-noticias">
-                                <h4>momesso terá participação de destaque no xxxvi ciclo em reuniões conjuntas da csm-pr focando nos beneficios da alta qualidade.</h4>
-                            </div>
-                            <br>
-                            <button type="button" class="btn btn-leia-mais">LEIA MAIS</button>
-                        </div>
+                        <br>
+                        <button type="button" class="btn btn-leia-mais">LEIA MAIS</button>
                     </div>
                 </div>
             </div>
-
+            <div class="col-md-4">
+                <div class="card-noticias">
+                    <div class="thumb-noticias" style="background-image: url('<?= BASE_URL; ?>arquivos/assets/img/noticias/thumb-noticia-1.png');"></div>
+                    <div style="padding: 10px 25px;">
+                        <div class="titulo-noticias">
+                            <h4>momesso terá participação de destaque no xxxvi ciclo em reuniões conjuntas da csm-pr focando nos beneficios da alta qualidade.</h4>
+                        </div>
+                        <br>
+                        <button type="button" class="btn btn-leia-mais">LEIA MAIS</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card-noticias">
+                    <div class="thumb-noticias" style="background-image: url('<?= BASE_URL; ?>arquivos/assets/img/noticias/thumb-noticia-1.png');"></div>
+                    <div style="padding: 10px 25px;">
+                        <div class="titulo-noticias">
+                            <h4>momesso terá participação de destaque no xxxvi ciclo em reuniões conjuntas da csm-pr focando nos beneficios da alta qualidade.</h4>
+                        </div>
+                        <br>
+                        <button type="button" class="btn btn-leia-mais">LEIA MAIS</button>
+                    </div>
+                </div>
+            </div>
         </div>
+
     </div>
     <!-- FIM NOTICIAS -->
 

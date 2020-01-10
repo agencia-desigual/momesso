@@ -22,9 +22,9 @@
 
     <!-- NOTICIAS -->
     <div class="">
-        <div style="padding: 60px 0px;" class="container">
+        <div class="container">
 
-            <div class="row">
+            <div class="row margin-conteudo">
 
                 <!-- CATEGORIAS -->
                 <div class="col-md-4">

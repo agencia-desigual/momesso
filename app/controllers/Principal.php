@@ -46,6 +46,30 @@ class Principal extends CI_controller
         $this->view("site/empresa",$dados);
     }
 
+    public function diferencial()
+    {
+        $dados = $this->getSEO();
+
+        // Chama a view de diferencial
+        $this->view("site/diferencial",$dados);
+    }
+
+    public function cimbria()
+    {
+        $dados = $this->getSEO();
+
+        // Chama a view da cimbria
+        $this->view("site/cimbria",$dados);
+    }
+
+    public function trabalheConosco()
+    {
+        $dados = $this->getSEO();
+
+        // Chama a view de trabalhe conosco
+        $this->view("site/trabalhe-conosco",$dados);
+    }
+
     public function noticias()
     {
         $dados = $this->getSEO();
@@ -81,21 +105,5 @@ class Principal extends CI_controller
         $this->view("site/error/404");
 
     } // End >> fun>::error404()
-
-
-    /**
-     * Método responsável por gerar a página inicial
-     * do site.
-     * ------------------------------------------------
-     * @method GET
-     * @url BASE_URL
-     */
-    public function index()
-    {
-        // Chama a view da home
-        $this->view("site/index");
-
-    } // End >> fun::index()
-
 
 } // END::Class Principal

@@ -21,8 +21,8 @@
     <!-- FIM BREADCUMP -->
 
     <!-- CONTEUDO -->
-    <div style="padding: 60px 0px;" class="container">
-        <div class="row">
+    <div class="container">
+        <div class="row margin-conteudo">
 
             <div class="col-md-6 empresa">
                 <h4>A MOMESSO</h4>

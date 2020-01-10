@@ -28,6 +28,62 @@
 <script src="<?= BASE_URL.'arquivos/assets/js/popper.min.js' ?>"></script>
 <script src="<?= BASE_URL.'arquivos/assets/js/bootstrap.min.js' ?>"></script>
 <script src="<?= BASE_URL.'arquivos/assets/js/funcoes.js' ?>"></script>
+
+
+<!-- Plugins -->
+<script src="<?= BASE_URL; ?>arquivos/plugins/sweetalert/sweetalert2.all.js" defer=""></script>
+<script src="<?= BASE_URL; ?>arquivos/plugins/mascara/mascara.js" defer=""></script>
+<script src="<?= BASE_URL; ?>arquivos/plugins/dropify/js/dropify.js" defer=""></script>
+
+<!-- Configurações dos modulos.
+ ================================================== -->
+<script defer>
+    $(document).ready(function () {
+
+        // -- Dropify
+        $('.dropify').dropify({
+            messages: {
+                'default': 'Arraste seu currículo ou click aqui',
+                'replace': 'Arraste seu currículo ou click aqui',
+                'remove':  'Remover',
+                'error':   'Ops, ocorreu um erro.'
+            }
+        });
+
+        $(function() {
+
+            // Remove button click
+            $(document).on(
+                'click',
+                '[data-role="dynamic-fields"] > .form-inline [data-role="remove"]',
+                function(e) {
+                    e.preventDefault();
+                    $(this).closest('.form-inline').remove();
+                }
+            );
+
+
+            // Add button click
+            $(document).on(
+                'click',
+                '[data-role="dynamic-fields"] > .form-inline [data-role="add"]',
+                function(e) {
+                    e.preventDefault();
+                    var container = $(this).closest('[data-role="dynamic-fields"]');
+                    new_field_group = container.children().filter('.form-inline:first-child').clone();
+                    new_field_group.find('input').each(function(){
+                        $(this).val('');
+                    });
+                    container.append(new_field_group);
+                }
+            );
+
+        });
+        // END >> Dropify
+
+    });
+</script>
+
 </body>
 
 </html>

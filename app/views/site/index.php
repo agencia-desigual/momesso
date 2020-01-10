@@ -57,7 +57,7 @@
     <!-- FIM INSTITUCIONAL -->
 
     <!-- NOTICIAS -->
-    <div class="noticias-home">
+    <div style="padding: 50px 0px;" class="noticias-home">
         <div class="container">
 
             <div style="border-left: 5px solid #f47920;height: 30px;display: inline;margin-right: 15px;"></div>
