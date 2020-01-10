@@ -37,12 +37,71 @@ footer
     padding: 15px 0px;
 }
 
+.menu-desktop
+{
+    display: block;
+}
+
+.menu-mobile
+{
+    display: none;
+}
+
+.sidebar-menu-mobile
+{
+    position: fixed;
+    top: 0px;
+    left: -3000px;
+    width: 250px;
+    height: 100vh;
+    z-index: 9999999;
+    margin: 0px;
+    padding: 0px;
+    background: #f47920;
+    transition: all 0.5s;
+}
+
+.fundo-menu{
+    position: fixed;
+    z-index: 998;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.7);
+    display: none;
+}
+
 .menu-itens
 {
     color: #fff !important;
     text-decoration: none !important;
     font-weight: bold;
     padding: 0px 10px;
+    cursor: pointer;
+}
+
+.menu-itens-mobile
+{
+    color: #fff !important;
+    text-decoration: none !important;
+    font-weight: bold;
+    padding: 0px 8px;
+    font-size: 20px;
+}
+
+.submenu-itens-mobile
+{
+    color: #ffffffb0 !important;
+    text-decoration: none !important;
+    font-weight: bold;
+    padding: 0px 20px;
+    font-size: 15px;
+}
+
+.submenu-itens-mobile:hover
+{
+    color: #fff !important;
 }
 
 .footer-itens
@@ -58,11 +117,54 @@ footer
     color: #f47920 !important;
 }
 
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
 
-.menu-drop-hover:hover
+.dropdown-content {
+    display: none;
+    color: #f47920 !important;
+    position: absolute;
+    background-color: #323232;
+    width: 250px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    padding: 10px 20px;
+    z-index: 1;
+    text-align: left !important;
+    margin-top: 30px;
+    border-bottom-right-radius: 10px;
+    border-bottom-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+
+.dropdown-content p
+{
+    padding-top: 10px;
+    text-transform: uppercase;
+    font-size: 15px;
+    color: #a7a7a7;
+    cursor: pointer;
+}
+
+.dropdown-content p:hover
+{
+    color: #f47920;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.dropdown:hover .menu-drop-hover
 {
     background-color: #424040;
-    padding: 43px 0px 38px;
+    padding: 44px 10px 43px;
+}
+
+#menu-empresa:hover .banner-principal
+{
+    display: none !important;
 }
 
 
@@ -294,6 +396,270 @@ footer
     background-color: #b95c19;
     border: 2px solid #b95c19;
     color: #fff;
+}
+
+
+
+
+
+/*PERSONALIZAÇÃO DA PAGINA DE CONTATO*/
+.titulo-contato h1
+{
+    color: #f47920;
+    font-size: 35px;
+    font-weight: bold;
+}
+
+.titulo-contato p
+{
+    color: #969696;
+    font-size: 15px;
+}
+
+.card-form-contato
+{
+    background-color: #f2f2f2;
+    border-radius: 10px;
+}
+
+.btn-form-contato
+{
+    width: 100%;
+    border-radius: 10px;
+    color: #fff;
+    background-color: #f47920;
+    border-color: #f47920;
+    font-size: 18px;
+    font-weight: 800;
+    text-transform: uppercase;
+}
+
+.btn-form-contato:hover
+{
+    background-color: transparent;
+    border-color: #f47920;
+    border: 2px solid;
+    color: #f47920;
+}
+
+.tipo-form
+{
+    padding: 0px 0px 20px 0px;
+    color: #808080;
+    font-weight: 900;
+}
+
+.hr-tipo-form
+{
+    border-top: 2px solid #808080;
+}
+
+.hr-tipo-form-ativo
+{
+    border-top: 2px solid #f47920;
+}
+
+.tipo-form-ativo
+{
+    padding: 0px 0px 20px 0px;
+    color: #f47920;
+    font-weight: 900;
+}
+
+.dados-contato
+{
+    padding: 150px 30px;
+}
+
+.dados-contato p
+{
+    color: #7f7f7f;
+    font-weight: 500;
+    font-size: 18px;
+    display: inline;
+    margin-left: 10px;
+}
+
+.dados-contato h4
+{
+    color: #f47920;
+    font-weight: bold;
+}
+
+
+
+
+
+/* PERSONALIZAÇÃO DA PAGINA DA EMPRESA */
+.empresa p
+{
+    color: #8d8d8d;
+}
+
+.empresa h4
+{
+    color: #f47920;
+    font-weight: 800;
+    font-size: 35px;
+}
+
+
+
+
+
+/* BREADCUMP PERSONALIZADO */
+.breadcump
+{
+    height: 210px;
+    width: 100%;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+
+.titulo-breadcump
+{
+    text-align: center;
+    font-size: 35px;
+    color: #fff;
+    font-weight: 900;
+    margin-top: 60px;
+}
+
+.caminho-breadcump
+{
+    color: #e39e2c;
+}
+
+.caminho-breadcump a
+{
+    color: #e39e2c !important;
+    text-decoration: none;
+}
+
+
+
+
+
+/* PERSONALIZAÇÃO DA PAGINA DE PRODUTOS */
+.thumb-categoria-produto
+{
+    height: 70px;
+    background-position: center;
+    border-radius: 10px;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.thumb-categoria-produto h4
+{
+    text-transform: uppercase;
+    font-weight: 900;
+    color: #fff;
+    padding: 20px;
+}
+
+.categorias-filhas
+{
+    margin-top: 20px;
+    cursor: pointer;
+}
+
+.categorias-filhas img
+{
+    position: relative;
+    top: -3px;
+}
+
+.categorias-filhas h5
+{
+    color: #808080;
+    font-size: 18px;
+    display: inline;
+    margin-left: 5px;
+}
+
+.card-produto
+{
+    border: 1px solid #b2b2b2;
+    border-radius: 5px;
+    padding: 25px;
+    cursor: pointer;
+    margin: 0px 0px 35px 0px;
+}
+
+.card-produto h4
+{
+    color: #000;
+    font-size: 18px;
+    text-align: left;
+    text-transform: uppercase;
+    font-weight: 900;
+}
+
+.card-produto img
+{
+    width: 100%;
+    margin-bottom: 25px;
+}
+
+.borda-left
+{
+    border-left: 1px solid #cccccc;
+    height: 100%;
+}
+
+.btn-todos-produtos
+{
+    background-color: transparent;
+    border: 2px solid;
+    color: #f47920;
+    font-weight: 900;
+}
+
+.btn-todos-produtos:hover
+{
+    background-color: #f47920;
+    border: 2px solid #f47920;
+    color: #fff;
+    font-weight: 900;
+}
+
+.produtos h3
+{
+    color: #f47920;
+    font-weight: 900;
+    font-size: 25px;
+}
+
+.produtos h2
+{
+    color: #f47920;
+    font-weight: 900;
+    font-size: 25px;
+    text-transform: uppercase;
+}
+
+.thumb-produto{
+    width: 100%;
+    padding: 80px;
+}
+
+.btn-solicitar-orcamento
+{
+    background-color: #95cc47;
+    border: 2px solid #95cc47;
+    color: #fff;
+    padding: 10px 30px;
+    font-weight: 900;
+}
+
+.btn-solicitar-orcamento:hover
+{
+    background-color: transparent;
+    border: 2px solid #95cc47;
+    color: #95cc47;
+    font-weight: 900;
 }
 
 

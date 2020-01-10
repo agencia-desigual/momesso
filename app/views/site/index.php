@@ -11,7 +11,7 @@
                     <div>
                         <p class="titulo-banner-principal">
                             Hora de semear boas<br>
-                            colheitas para 2019.<br>
+                            colheitas para <?php echo date("Y"); ?>.<br>
                             Garantia de produtividade,<br>
                             vigor e germinação<br>
                         </p>
@@ -28,14 +28,14 @@
             <div class="col-md-6">
                 <div class="centraliza-itens altura-80">
                     <div>
-                        <img width="300px" src="<?= BASE_URL; ?>arquivos/assets/img/momesso_ready_logo.png">
+                        <img class="remover-img-767" width="300px" src="<?= BASE_URL; ?>arquivos/assets/img/momesso_ready_logo.png">
                     </div>
                 </div>
             </div>
         </div>
     </div>
 
-</div>
+    </div>
     <!-- FIM BANNER -->
 
     <!-- INSTITUCIONAL -->
