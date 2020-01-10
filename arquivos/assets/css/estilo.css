@@ -254,7 +254,6 @@ footer
 .noticias-home
 {
     background-color: #f7f7f7;
-    padding: 50px 0px;
 }
 
 .btn-todas-noticias
@@ -279,6 +278,7 @@ footer
     background-color: #ffff;
     border-radius: 15px;
     border: 1px solid #b2b2b2;
+    margin-bottom: 30px !important;
 }
 
 .thumb-noticias
@@ -287,6 +287,8 @@ footer
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
+    border-top-right-radius: 10px;
+    border-top-left-radius: 10px;
 }
 
 .titulo-noticias h4
@@ -337,6 +339,7 @@ footer
     background-repeat: no-repeat;
     background-size: cover;
     min-height: 270px;
+    margin-bottom: 35px;
 }
 
 .card-categoria-titulo h4
@@ -375,6 +378,7 @@ footer
     border: 1px solid #b2b2b2;
     border-radius: 5px;
     padding: 25px;
+    margin-bottom: 35px;
 }
 
 .card-produto-home img
@@ -662,7 +666,11 @@ footer
     font-weight: 900;
 }
 
-
+.margin-conteudo
+{
+    margin-top: 60px;
+    margin-bottom: 60px;
+}
 
 
 

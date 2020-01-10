@@ -9,11 +9,20 @@ $Rotas->onError("404", "Principal::error404");
  *************************/
 
 $Rotas->on("GET","","Principal::index");
-$Rotas->on("GET","contato","Principal::contato");
 $Rotas->on("GET","empresa","Principal::empresa");
+$Rotas->on("GET","diferencial","Principal::diferencial");
+$Rotas->on("GET","trabalhe-conosco","Principal::trabalheConosco");
+$Rotas->on("GET","cimbria","Principal::cimbria");
+$Rotas->on("GET","contato","Principal::contato");
 $Rotas->on("GET","noticias","Principal::noticias");
 $Rotas->on("GET","produtos","Principal::produtos");
 $Rotas->on("GET","produto-detalhes","Principal::produtoDetalhes");
+
+
+/*************************
+ * FUNCOES AJAX
+ *************************/
+$Rotas->on("POST","ajax-contato","Principal::ajaxContato");
 
 
 /*************************
