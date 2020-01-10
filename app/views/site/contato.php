@@ -43,34 +43,34 @@
                         <!-- FIM TIPO -->
 
                         <!-- FORMULÁRIO -->
-                        <form>
+                        <form id="formContato">
                             <div class="form-group">
-                                <input type="text" class="form-control" placeholder="Nome:">
+                                <input name="nome" maxlength="100" type="text" class="form-control" placeholder="Nome:" required>
                             </div>
                             <div class="form-group">
-                                <input type="email" class="form-control" placeholder="Email:">
+                                <input name="email" maxlength="200" type="email" class="form-control" placeholder="Email:" required>
                             </div>
                             <div id="tipoCPF" class="form-group">
-                                <input type="text" class="form-control" placeholder="CPF:">
+                                <input name="cpf" type="text" class="form-control cpf" placeholder="CPF:">
                             </div>
                             <div id="tipoCNPJ" style="display: none" class="form-group">
-                                <input type="text" class="form-control" placeholder="CNPJ:">
+                                <input name="cnpj" type="text" class="form-control cnpj" placeholder="CNPJ:">
                             </div>
                             <div class="form-group">
-                                <input type="tel" class="form-control" placeholder="Telefone:">
+                                <input name="telefone" type="tel" class="form-control mascara-tel-cel" placeholder="Telefone / Celular:" required>
                             </div>
                             <div class="form-row">
                                 <div class="form-group col-md-8">
-                                    <input type="text" class="form-control" placeholder="Cidade:">
+                                    <input name="cidade" type="text" class="form-control" placeholder="Cidade:" required>
                                 </div>
                                 <div class="form-group col-md-4">
-                                    <input type="text" class="form-control" placeholder="UF:">
+                                    <input style="text-transform: uppercase" name="estado" maxlength="2" type="text" class="form-control" placeholder="UF:" required>
                                 </div>
                             </div>
                             <div class="form-group">
-                                <textarea class="form-control" rows="6" placeholder="Mensagem:"></textarea>
+                                <textarea name="mensagem" class="form-control" rows="6" placeholder="Mensagem:" required></textarea>
                             </div>
-                            <button type="submit" class="btn btn-form-contato">ENVIAR</button>
+                            <button id="btnContato" type="submit" class="btn btn-form-contato">ENVIAR</button>
                         </form>
                         <!-- FIM FORMULÁRIO -->
 

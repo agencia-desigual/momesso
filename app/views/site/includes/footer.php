@@ -27,13 +27,13 @@
 <script src="<?= BASE_URL.'arquivos/assets/js/jquery-3.4.1.min.js' ?>"></script>
 <script src="<?= BASE_URL.'arquivos/assets/js/popper.min.js' ?>"></script>
 <script src="<?= BASE_URL.'arquivos/assets/js/bootstrap.min.js' ?>"></script>
-<script src="<?= BASE_URL.'arquivos/assets/js/funcoes.js' ?>"></script>
-
 
 <!-- Plugins -->
 <script src="<?= BASE_URL; ?>arquivos/plugins/sweetalert/sweetalert2.all.js" defer=""></script>
-<script src="<?= BASE_URL; ?>arquivos/plugins/mascara/mascara.js" defer=""></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.10/jquery.mask.js"></script>
 <script src="<?= BASE_URL; ?>arquivos/plugins/dropify/js/dropify.js" defer=""></script>
+
+<script src="<?= BASE_URL.'arquivos/assets/js/funcoes.js' ?>"></script>
 
 <!-- Configurações dos modulos.
  ================================================== -->

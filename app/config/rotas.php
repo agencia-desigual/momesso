@@ -20,6 +20,12 @@ $Rotas->on("GET","produto-detalhes","Principal::produtoDetalhes");
 
 
 /*************************
+ * FUNCOES AJAX
+ *************************/
+$Rotas->on("POST","ajax-contato","Principal::ajaxContato");
+
+
+/*************************
  * PAINEL ADM
  *************************/
 

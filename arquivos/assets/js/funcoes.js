@@ -1,3 +1,62 @@
+var Dados = {
+    'url': "http://localhost/git/momesso/"
+}
+
+/*
+==================================================
+                FORMULARIO CONTATO
+==================================================
+*/
+$("#formContato").submit(function(e) {
+
+    e.preventDefault(); // avoid to execute the actual submit of the form.
+
+    var form = $(this);
+
+    document.getElementById("btnContato").disabled = true;
+    document.getElementById("btnContato").innerHTML = "ENVIANDO, AGUARDE...";
+
+    $.ajax({
+        type: "POST",
+        dataType: 'json',
+        url: Dados.url + 'ajax-contato',
+        data: form.serialize(), // serializes the form's elements.
+        success: function (data) {
+
+            if(data.tipo == true){
+                console.log(data);
+                Swal.fire({
+                    type: 'success',
+                    title: 'Sucesso',
+                    text: data.mensagem,
+                })
+                document.getElementById("formContato").reset();
+            }else {
+                Swal.fire({
+                    type: 'error',
+                    title: 'Erro...',
+                    text: data.mensagem,
+                })
+            }
+            document.getElementById("btnContato").disabled = false;
+            document.getElementById("btnContato").innerHTML = "ENVIAR";
+
+        },
+        error: function (data) {
+            Swal.fire({
+                type: 'error',
+                title: 'Erro...',
+                text: data.mensagem,
+            })
+            document.getElementById("btnContato").disabled = false;
+            document.getElementById("btnContato").innerHTML = "ENVIAR";
+        }
+
+    });
+
+    return false;
+});
+
 
 function menu(tipo)
 {
@@ -29,6 +88,8 @@ $('#abreProduto').click(function () {
 
 $('#tipoJuridico').click(function () {
 
+    $('.cpf').val('');
+
     $('#tipoFisico').removeClass('tipo-form-ativo');
     $('#hrFisico').removeClass('hr-tipo-form-ativo');
 
@@ -41,6 +102,8 @@ $('#tipoJuridico').click(function () {
 });
 
 $('#tipoFisico').click(function () {
+
+    $('.cnpj').val('');
 
     $('#tipoJuridico').removeClass('tipo-form-ativo');
     $('#hrJurudico').removeClass('hr-tipo-form-ativo');
@@ -68,3 +131,17 @@ $(".sub-menu-empresa").hover(function(){
         $('.sub-menu-empresa').css("display", "none");
     },2000)
 });
+
+var SPMaskBehavior = function (val) {
+        return val.replace(/\D/g, '').length === 11 ? '(00) 00000-0000' : '(00) 0000-00009';
+    },
+    spOptions = {
+        onKeyPress: function(val, e, field, options) {
+            field.mask(SPMaskBehavior.apply({}, arguments), options);
+        }
+    };
+
+$('.mascara-tel-cel').mask(SPMaskBehavior, spOptions);
+
+$('.cnpj').mask("00.000.000/0000-00");
+$('.cpf').mask("000.000.000-00");
