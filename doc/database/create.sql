@@ -22,10 +22,20 @@ CREATE TABLE produto(
   id_produto INT NOT NULL AUTO_INCREMENT,
   id_categoria INT NOT NULL,
   nome VARCHAR(100) NOT NULL,
-  imagem VARCHAR(100) NOT NULL,
   descricao TEXT NOT NULL,
+  slug VARCHAR(150) NOT NULL,
   PRIMARY KEY (id_produto),
   FOREIGN KEY (id_categoria) REFERENCES categoria(id_categoria)
+);
+
+
+CREATE TABLE imagem(
+  id_imagem INT NOT NULL AUTO_INCREMENT,
+  id_produto INT NOT NULL,
+  imagem VARCHAR(150) NOT NULL,
+  capa BOOLEAN NOT NULL DEFAULT false,
+  PRIMARY KEY (id_imagem),
+  FOREIGN KEY (id_produto) REFERENCES produto(id_produto)
 );
 
 

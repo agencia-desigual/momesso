@@ -48,7 +48,7 @@ $(".deletar").on("click", function () {
         if (result.value)
         {
             // Monta a url
-            var url = Global.config.url + "categoria/delete/" + id;
+            var url = Global.config.url + "produto/delete/" + id;
 
             // Envia a requisição
             Global.enviaApi("DELETE", url, null).then((data) => {
@@ -93,7 +93,7 @@ $("#formInsert").on("submit", function(){
         form.set("slug", result);
 
         // Url
-        var url = Global.config.url + "categoria/insert";
+        var url = Global.config.url + "produto/insert";
 
         // Faz a requisição
         Global.enviaApi("POST", url, form).then((data) => {
@@ -101,13 +101,10 @@ $("#formInsert").on("submit", function(){
             // Avisa que deu certo
             Global.setSuccess(data.mensagem);
 
-            // Remove a imagem
-            $(".dropify-clear").click();
-
-            // Limpa o formulário
-            $('#formInsert').each (function(){
-                this.reset();
-            });
+            // Redireciona o usuário para a página do produto
+            setTimeout(() => {
+                location.href = Global.config.url + "painel/produtos/" + data.objeto.id_produto;
+            }, 1500);
         });
 
         // Desbloqueia o botão
@@ -146,7 +143,7 @@ $("#formAltera").on("submit", function(){
         form.set("slug", result);
 
         // Url
-        var url = Global.config.url + "categoria/update/" + $(this).data("id");
+        var url = Global.config.url + "produto/update/" + $(this).data("id");
 
         // Faz a requisição
         Global.enviaApi("POST", url, form).then((data) => {

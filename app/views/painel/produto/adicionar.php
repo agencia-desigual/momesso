@@ -14,7 +14,7 @@
                     <div class="card-header bg-white border-0">
                         <div class="row align-items-center">
                             <div class="col-12">
-                                <h3 class="mb-0">Adicionar Categoria</h3>
+                                <h3 class="mb-0">Adicionar Produto</h3>
                             </div>
                         </div>
                     </div>
@@ -24,20 +24,22 @@
                         <form id="formInsert">
                             <h6 class="heading-small text-muted mb-4">Preencha as informações</h6>
 
+                            <!-- Nome -->
                             <div class="row">
-                                <div class="col-12">
+                                <div1 class="col-12">
                                     <div class="form-group focused">
                                         <label class="form-control-label">Nome</label>
-                                        <input type="text" class="form-control form-control-alternative" id="campoNome" name="nome" placeholder="Nome da Categoria" required />
+                                        <input type="text" class="form-control form-control-alternative" id="campoNome" name="nome" placeholder="Nome do produto" required />
                                     </div>
-                                </div>
+                                </div1>
                             </div>
+
+                            <!-- Categoria e Slug -->
                             <div class="row">
                                 <div class="col-lg-6">
                                     <div class="form-group">
-                                        <label class="form-control-label" for="input-email">Categoria Mãe</label>
-                                        <select class="form-control form-control-alternative" name="id_categoria_mae" required>
-                                            <option value="0" selected>Não Possui</option>
+                                        <label class="form-control-label" for="input-email">Categoria</label>
+                                        <select class="form-control form-control-alternative" name="id_categoria" required>
                                             <?php foreach($categorias as $cat): ?>
                                                 <option value="<?= $cat->id_categoria ?>"><?= $cat->nome; ?></option>
                                             <?php endforeach;; ?>
@@ -52,11 +54,13 @@
                                     </div>
                                 </div>
                             </div>
+
+                            <!-- Descricao -->
                             <div class="row">
                                 <div class="col-12">
                                     <div class="form-group focused">
-                                        <label class="form-control-label">Imagem (Não obrigatório)</label>
-                                        <input type="file" name="imagem" class="dropify" />
+                                        <label class="form-control-label">Descrição do Produto</label>
+                                        <textarea class="form-control form-control-alternative" rows="5" name="descricao" required></textarea>
                                     </div>
                                 </div>
                             </div>
