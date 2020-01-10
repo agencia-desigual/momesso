@@ -28,13 +28,34 @@ class Principal extends CI_controller
     } // End >> fun::__construct()
 
 
+    /**
+     * Método responsável por gerar a página inicial
+     * do site.
+     * ------------------------------------------------
+     * @method GET
+     * @url BASE_URL
+     */
     public function index()
     {
         $dados = $this->getSEO();
 
         // Chama a view da home
         $this->view("site/index",$dados);
-    }
+    } // End >> fun>::error404()
+
+
+    /**
+     * Método responsável por exiber uma página de error
+     * 404. Esse método será chamado automaticamente sempre
+     * que um usuário acessar uma rota restrita.
+     */
+    public function error404()
+    {
+        // Chama a view do erro 404
+        $this->view("site/error/404");
+
+    } // End >> fun>::error404()
+
 
     public function contato()
     {
@@ -99,20 +120,6 @@ class Principal extends CI_controller
         // Chama a view de produtos
         $this->view("site/produto-detalhes",$dados);
     }
-
-    /**
-     * Método responsável por exiber uma página de error
-     * 404. Esse método será chamado automaticamente sempre
-     * que um usuário acessar uma rota restrita.
-     */
-    public function error404()
-    {
-        // Chama a view do erro 404
-        $this->view("site/error/404");
-
-    } // End >> fun>::error404()
-
-
 
 
 

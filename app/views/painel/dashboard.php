@@ -114,15 +114,21 @@
                                 <thead class="thead-light">
                                     <tr>
                                         <th scope="col">Imagem</th>
-                                        <th scope="col">Nome</th>
-                                        <th scope="col">Data Cadatros</th>
+                                        <th scope="col">Título</th>
+                                        <th scope="col">Data Cadastro</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                 <?php if(!empty($noticias)): ?>
                                     <?php foreach ($noticias as $not): ?>
                                         <tr>
-                                            <th scope="row"><?= BASE_STORANGE . "noticias/{$not->id_noticia}/" . $not->imagem; ?></th>
+                                            <th scope="row">
+                                                <?php if(!empty($not->imagem)): ?>
+                                                    <img src="<?= BASE_STORANGE; ?>noticia/<?= $not->imagem ; ?>" style="width: 120px;" />
+                                                <?php else: ?>
+                                                    <img src="<?= BASE_URL; ?>arquivos/assets/img/not-found.jpg" style="width: 120px;" />
+                                                <?php endif; ?>
+                                            </th>
                                             <td style="text-transform: capitalize;"><?= $not->nome; ?></td>
                                             <td><?= date("d/m/Y", strtotime($not->data)); ?></td>
                                         </tr>

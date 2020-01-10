@@ -96,6 +96,7 @@ class Painel extends Controller
         $ObjProduto = new Produto();
         $ObjNoticia = new Noticia();
         $ObjUsuario = $this->ObjModelUsuario;
+        $ObjImagem = new \Model\Imagem();
 
         // As ultimas noticias
         $noticias = $ObjNoticia->get(null, "id_noticia DESC", 5)

@@ -19,14 +19,17 @@
 
         // -- Summernote
         $('#summernote').summernote({
-            placeholder: 'Faça a descrição da publicação aqui',
+            placeholder: 'Escreva aqui',
             tabsize: 2,
             height: 300,
             toolbar: [
                 ['style', ['style']],
                 ['font', ['bold', 'italic', 'underline', 'clear']],
+                ['fontname', ['fontname']],
                 ['color', ['color']],
                 ['para', ['ul', 'ol', 'paragraph']],
+                ['table', ['table']],
+                ['insert', ['link', 'picture', 'hr']],
                 ['view', ['fullscreen']]
             ],
             callbacks: {
