@@ -5,10 +5,10 @@
                 <img src="<?= BASE_URL; ?>arquivos/assets/img/momesso_logo_rodape.png">
             </div>
             <div class="col-md-8 text-right">
-                <a href="#" class="footer-itens">HOME</a>
-                <a href="#" class="footer-itens">EMPRESA</a>
-                <a href="#" class="footer-itens">PRODUTOS</a>
-                <a href="#" class="footer-itens">CONTATO</a>
+                <a href="<?= BASE_URL; ?>" class="footer-itens">HOME</a>
+                <a href="<?= BASE_URL; ?>" class="footer-itens">EMPRESA</a>
+                <a href="<?= BASE_URL; ?>" class="footer-itens">PRODUTOS</a>
+                <a href="<?= BASE_URL; ?>contato" class="footer-itens">CONTATO</a>
                 <a href="#" class="menu-itens" style="padding: 0px 3px; vertical-align: super"><img width="35px" src="<?= BASE_URL; ?>arquivos/assets/img/icone-face-rodape.png"></a>
                 <a href="#" class="menu-itens" style="padding: 0px 3px; vertical-align: super"><img width="35px" src="<?= BASE_URL; ?>arquivos/assets/img/icone-youtube-rodape.png"></a>
             </div>

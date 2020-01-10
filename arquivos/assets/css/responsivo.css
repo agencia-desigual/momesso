@@ -1,3 +1,21 @@
 @media only screen and (max-width: 991px) {
 
+    .menu-desktop { display: none; }
+
+    .menu-mobile { display: block; }
+
+}
+
+@media only screen and (max-width: 767px) {
+
+    .remover-img-767 { display: none; }
+
+    .borda-left { border: none; }
+
+}
+
+@media only screen and (max-width: 430px) {
+
+    .thumb-produto { padding: 15px; }
+
 }
