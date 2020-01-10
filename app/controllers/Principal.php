@@ -37,10 +37,15 @@ class Principal extends CI_controller
      */
     public function index()
     {
+
+
+        // Busca o SEO
         $dados = $this->getSEO();
+
 
         // Chama a view da home
         $this->view("site/index",$dados);
+
     } // End >> fun>::error404()
 
 

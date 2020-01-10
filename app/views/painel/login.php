@@ -78,6 +78,7 @@
 <!-- Plugins -->
 <script src="<?= BASE_URL; ?>arquivos/plugins/sweetalert/sweetalert2.all.js"></script>
 <script src="<?= BASE_URL; ?>arquivos/plugins/mascara/mascara.js"></script>
+<script src="<?= BASE_URL; ?>arquivos/plugins/datatables/js/js.js" defer=""></script>
 
 <!-- Scripts -->
 <script type='module' src='<?= BASE_URL; ?>arquivos/app/method/Login.js'></script>
