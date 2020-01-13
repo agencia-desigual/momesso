@@ -12,10 +12,16 @@
 
     .borda-left { border: none; }
 
+    .breadcump{ height: 100% }
+
+    .caminho-breadcump { padding-bottom: 25px; }
+
 }
 
 @media only screen and (max-width: 430px) {
 
     .thumb-produto { padding: 15px; }
+
+
 
 }

@@ -1,11 +1,4 @@
 <?php $this->view('site/includes/header'); ?>
-<style>
-    @media only screen and (max-width: 430px) {
-
-        .breadcump{ height: 250px; }
-
-    }
-</style>
 
     <!-- BREADCUMP-->
     <div class="breadcump" style="background-image: url('<?= BASE_URL ?>arquivos/assets/img/breadcump.png');">
