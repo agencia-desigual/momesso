@@ -330,6 +330,14 @@ footer
     padding: 50px 0px;
 }
 
+.img-thumb-produto
+{
+    height: 250px;
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
 .card-categoria-produto
 {
     background-color: #f47920;
@@ -591,7 +599,7 @@ footer
 .categorias-filhas h5
 {
     color: #808080;
-    font-size: 18px;
+    font-size: 15px;
     display: inline;
     margin-left: 5px;
 }
@@ -608,10 +616,26 @@ footer
 .card-produto h4
 {
     color: #000;
-    font-size: 18px;
+    font-size: 13px;
     text-align: left;
     text-transform: uppercase;
     font-weight: 900;
+    min-height: 50px;
+}
+
+.btn-card-produto
+{
+    background-color: #f47920;
+    border: 2px solid #f47920;
+    color: #FFF;
+    font-weight: 900;
+}
+
+.btn-card-produto:hover
+{
+    background-color: transparent;
+    border: 2px solid #f47920;
+    color: #f47920;
 }
 
 .card-produto img

@@ -1,4 +1,4 @@
-<?php $this->view('site/includes/header'); ?>
+    <?php $this->view('site/includes/header'); ?>
 
     <!-- BREADCUMP-->
     <div class="breadcump" style="background-image: url('<?= BASE_URL ?>arquivos/assets/img/breadcump.png');">
@@ -27,7 +27,7 @@
             <div class="row margin-conteudo">
 
                 <!-- CATEGORIAS -->
-                <div class="col-md-4">
+                <div class="col-md-3">
 
                     <?php foreach ($categorias as $cat): ?>
                         <!-- CATEGORIA PAI -->
@@ -54,7 +54,7 @@
                 <!-- FIM CATEGORIAS -->
 
                 <!-- PRODUTOS -->
-                <div class="col-md-8">
+                <div class="col-md-9">
 
                     <div class="borda-left">
                     <div class="container">
@@ -70,14 +70,18 @@
                                             <a class="text-decoration-none"
                                                href="<?= BASE_URL; ?>produtos/<?= $produto->id_produto; ?>/<?= $produto->slug; ?>">
                                                 <div class="card-produto">
-                                                    <h4><?= $produto->nome; ?></h4>
+                                                    <div class="img-thumb-produto" style="background-image: url('<?= $produto->capa ?>')"></div>
                                                     <hr style="border-bottom: 2px solid #f47920;width: 100%;">
-                                                    <img src="<?= $produto->capa; ?>">
+                                                    <h4><?= substr($produto->nome, 0, 48); ?></h4>
+                                                    <div class="text-center">
+                                                        <button type="button" class="btn btn-card-produto">CONHEÇA</button>
+                                                    </div>
                                                 </div>
                                             </a>
                                         </div>
                                 <?php endforeach; ?>
                             </div>
+
 
                             <a class="text-decoration-none"
                                href="<?= BASE_URL; ?>produtos/categoria/<?= $prod["categoria"]->id_categoria; ?>/<?= $prod["categoria"]->slug; ?>">
