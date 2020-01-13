@@ -192,6 +192,16 @@ class Principal extends CI_controller
         $this->view("site/trabalhe-conosco",$dados);
     }
 
+  
+    public function noticiaDetalhes()
+    {
+        //Pegar o SEO da noticia, principalmento do SMO do face
+        $dados = $this->getSEO();
+
+        // Chama a view de noticias
+        $this->view("site/noticia-detalhes",$dados);
+    }
+
 
 
     /**
@@ -214,16 +224,16 @@ class Principal extends CI_controller
 
             //Setando a mensagem a ser enviada
             $mensagemEmail = "Olá você está recebendo uma mesnsagem do formulário de <b>Contato</b> abaixo estão os detalhes:<br>".
-"<br>
-<b>TIPO PESSOA: </b>".$tipo."<br>
-<b>NOME: </b>".$_POST['nome']."<br>
-<b>E-MAIL: </b>".$_POST['email']."<br>
-<b>CPF: </b>".$_POST['cpf']."<br>
-<b>TELEFONE: </b>".$_POST['telefone']."<br>
-<b>CIDADE: </b>".$_POST['cidade']."<br>
-<b>ESTADO: </b>".strtoupper($_POST['estado'])."<br>
-<b>MENSAGEM: </b>".$_POST['mensagem']."<br>
-<br><br><p style='font-style: italic'>Página: ".BASE_URL."contato</p><p style='font-style: italic'>Enviada em ".$data."  ás ".$hora."</p>";
+                              "<br>
+                              <b>TIPO PESSOA: </b>".$tipo."<br>
+                              <b>NOME: </b>".$_POST['nome']."<br>
+                              <b>E-MAIL: </b>".$_POST['email']."<br>
+                              <b>CPF: </b>".$_POST['cpf']."<br>
+                              <b>TELEFONE: </b>".$_POST['telefone']."<br>
+                              <b>CIDADE: </b>".$_POST['cidade']."<br>
+                              <b>ESTADO: </b>".strtoupper($_POST['estado'])."<br>
+                              <b>MENSAGEM: </b>".$_POST['mensagem']."<br>
+                              <br><br><p style='font-style: italic'>Página: ".BASE_URL."contato</p><p style='font-style: italic'>Enviada em ".$data."  ás ".$hora."</p>";
 
 
             /*CONDIGURAÇÕES DO EMAIL DE ENVIO*/

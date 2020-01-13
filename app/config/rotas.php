@@ -19,6 +19,7 @@ $Rotas->on("GET","contato","Principal::contato");
 // Noticias
 $Rotas->on("GET","noticias","Noticia::exibirTodas");
 $Rotas->on("GET","noticias/{p}/{p}","Noticia::especifica");
+$Rotas->on("GET","noticia-detalhes","Principal::noticiaDetalhes");
 
 // Produtos
 $Rotas->on("GET","produtos/categoria/{p}/{p}","Produto::exibirCategoria");
