@@ -7,13 +7,13 @@
             <div class="row">
                 <div class="col-md-12">
                     <div>
-                        <p class="titulo-breadcump"><?= $categorias->nome; ?></p>
+                        <p class="titulo-breadcump"><?= $categoria->nome; ?></p>
                     </div>
                 </div>
             </div>
             <hr style="border-top: 1px solid #e39e2c!important;">
             <p class="caminho-breadcump">
-                <a href="<?= BASE_URL; ?>">HOME</a> > <a href="<?= BASE_URL; ?>produtos">PRODUTOS</a> > <?= $categorias->nome; ?>
+                <a href="<?= BASE_URL; ?>">HOME</a> > <a href="<?= BASE_URL; ?>produtos">PRODUTOS</a> > <?= $categoria->nome; ?>
             </p>
         </div>
 
