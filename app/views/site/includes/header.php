@@ -37,7 +37,9 @@
     <link rel="stylesheet" href="<?= BASE_URL.'arquivos/assets/css/responsivo.css' ?>">
 
     <!-- Plugins -->
-    <link rel="stylesheet" href="<?= BASE_URL; ?>arquivos/plugins/dropify/css/dropify.css">
+    <link rel="stylesheet" href="<?= BASE_URL; ?>arquivos/plugins/dropify/css/dropify.css" />
+    <link rel="stylesheet" href="<?= BASE_URL; ?>arquivos/plugins/owl.carousel/dist/assets/owl.carousel.min.css" />
+    <link rel="stylesheet" href="<?= BASE_URL; ?>arquivos/plugins/owl.carousel/dist/assets/owl.theme.default.css" />
 
     <title><?= $seo['title'] ?></title>
 </head>
@@ -100,10 +102,13 @@
             <!-- SUBMENU -->
             <div class="submenu-produtos" style="margin: 10px 0px; display: none">
                 <div style="padding: 5px 15px" class="col-md-12">
-                    <a href="<?= BASE_URL ?>produtos" class="submenu-itens-mobile">AGRO</a>
+                    <a href="<?= BASE_URL ?>produtos/agro" class="submenu-itens-mobile">AGRO</a>
                 </div>
                 <div style="padding: 5px 15px" class="col-md-12">
-                    <a href="<?= BASE_URL ?>produtos" class="submenu-itens-mobile">PLÁSTICO</a>
+                    <a href="<?= BASE_URL ?>produtos/plastico" class="submenu-itens-mobile">PLÁSTICO</a>
+                </div>
+                <div style="padding: 5px 15px" class="col-md-12">
+                    <a href="<?= BASE_URL ?>produtos" class="submenu-itens-mobile">TODOS</a>
                 </div>
             </div>
             <!-- FIM SUBMENU -->
@@ -175,20 +180,22 @@
                             <a style="text-decoration: none;" href="<?= BASE_URL ?>trabalhe-conosco">
                                 <p>trabalhe conosco</p>
                             </a>
-                            <hr style="border-top: 1px solid #3b3b3b">
                         </div>
                     </div>
                     <div class="dropdown">
                         <span class="menu-itens menu-drop-hover">PRODUTOS &nbsp;<img width="10px" src="<?= BASE_URL; ?>arquivos/assets/img/dropdown.png"></span>
                         <div class="dropdown-content">
-                            <a style="text-decoration: none;" href="<?= BASE_URL ?>produtos">
+                            <a style="text-decoration: none;" href="<?= BASE_URL ?>produtos/agro">
                                 <p>Agro</p>
                             </a>
                             <hr style="border-top: 1px solid #3b3b3b">
-                            <a style="text-decoration: none;" href="<?= BASE_URL ?>produtos">
+                            <a style="text-decoration: none;" href="<?= BASE_URL ?>produtos/plastico">
                                 <p>Plástico</p>
                             </a>
                             <hr style="border-top: 1px solid #3b3b3b">
+                            <a style="text-decoration: none;" href="<?= BASE_URL ?>produtos">
+                                <p>Todos</p>
+                            </a>
                         </div>
                     </div>
                     <a style="text-decoration: none;" href="<?= BASE_URL ?>contato">

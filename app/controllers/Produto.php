@@ -231,14 +231,71 @@ class Produto extends Controller
 
 
     /**
-     * FALTA FINALIZAR
+     * Método responsável por criar uma exibição de um
+     * produto especifico.
+     * ----------------------------------------------
+     * @param $id
+     * @param $slug
+     * ----------------------------------------------
+     * @method GET
+     * @url produtos/detalhe/[ID]/[SLUG]
      */
-    public function detalhes()
+    public function detalhes($id, $slug)
     {
+        // Variaveis
+        $dados = null;
+        $categorias = null;
+        $imagens = null;
+        $produto = null;
+
+        // Busca os dados do SEO
         $dados = $this->getSEO();
 
-        // Chama a view de produtos
-        $this->view("site/produto-detalhes",$dados);
+        // Busca o produto
+        $produto = $this->ObjModelProduto
+            ->get(["id_produto" => $id])
+            ->fetch(\PDO::FETCH_OBJ);
+
+        // Verifica se encontrou
+        if(!empty($produto))
+        {
+            // Busca as imagens do produto
+            $imagens = $this->ObjModelImagem
+                ->get(["id_produto" => $id])
+                ->fetchAll(\PDO::FETCH_OBJ);
+
+            // Busca a categoria do produto
+            $produto->categoria = $this->ObjModelCategoria
+                ->get(["id_categoria" => $produto->id_categoria])
+                ->fetch(\PDO::FETCH_OBJ);
+
+            // Busca as categoria mae
+            $categorias = $this->ObjModelCategoria
+                ->get(["id_categoria_mae" => "IS NULL"])
+                ->fetchAll(\PDO::FETCH_OBJ);
+
+            // Percorre as categorias mae
+            foreach ($categorias as $cat)
+            {
+                // Busca as categorias filho
+                $cat->categorias = $this->ObjModelCategoria
+                    ->get(["id_categoria_mae" => $cat->id_categoria])
+                    ->fetchAll(\PDO::FETCH_OBJ);
+            }
+
+            // Cria o array de exibição
+            $dados["produto"] = $produto;
+            $dados["imagens"] = $imagens;
+            $dados["categorias"] = $categorias;
+
+            // Chama a view de produtos
+            $this->view("site/produto-detalhes",$dados);
+        }
+        else
+        {
+            // Chama a view
+            $this->view("site/error/404");
+        } // Error - 404
 
     } // End >> fun::detalhes()
 

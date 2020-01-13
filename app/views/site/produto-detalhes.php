@@ -7,13 +7,13 @@
             <div class="row">
                 <div class="col-md-12">
                     <div>
-                        <p class="titulo-breadcump">PRODUTOS</p>
+                        <p class="titulo-breadcump"><?= $produto->nome; ?></p>
                     </div>
                 </div>
             </div>
             <hr style="border-top: 1px solid #e39e2c!important;">
             <p class="caminho-breadcump">
-                <a href="<?= BASE_URL; ?>">HOME</a> > PRODUTOS
+                <a href="<?= BASE_URL; ?>">HOME</a> > <a href="<?= BASE_URL; ?>produtos">Produtos</a> > <?= $produto->nome; ?>
             </p>
         </div>
 
@@ -28,30 +28,27 @@
 
                 <!-- CATEGORIAS -->
                 <div class="col-md-4">
+                    <?php foreach ($categorias as $cat): ?>
+                        <!-- CATEGORIA PAI -->
+                        <div class="thumb-categoria-produto"
+                             style="background-image: url('<?= BASE_STORANGE ?>categoria/<?= $cat->imagem; ?>');">
+                            <h4><?= $cat->nome; ?></h4>
+                        </div>
+                        <!-- FIM CATEGORIA PAI -->
 
-                    <!-- CATEGORIA PAI -->
-                    <div class="thumb-categoria-produto" style="background-image: url('<?= BASE_URL ?>arquivos/assets/img/produtos/thumb-categoria.png');">
-                        <h4>AGRO</h4>
-                    </div>
-                    <!-- FIM CATEGORIA PAI -->
+                        <?php foreach ($cat->categorias as $catFilho): ?>
+                            <!-- CATEGORIAS FILHAS -->
+                            <a href="<?= BASE_URL; ?>produtos/categoria/<?= $catFilho->id_categoria; ?>/<?= $catFilho->slug; ?>" class="text-decoration-none">
+                                <div class="categorias-filhas">
 
-                    <!-- CATEGORIAS FILHAS -->
-                    <div class="categorias-filhas">
-
-                        <img src="<?= BASE_URL; ?>arquivos/assets/img/produtos/icone-drop.png">
-                        <h5>Categorias Filhas</h5>
-                        <hr>
-                    </div>
-
-                    <div class="categorias-filhas">
-
-                        <img src="<?= BASE_URL; ?>arquivos/assets/img/produtos/icone-drop.png">
-                        <h5>Categorias Filhas</h5>
-                        <hr>
-                    </div>
-                    <!-- FIM CATEGORIAS FILHAS -->
-
-
+                                    <img src="<?= BASE_URL; ?>arquivos/assets/img/produtos/icone-drop.png">
+                                    <h5><?= $catFilho->nome; ?></h5>
+                                    <hr>
+                                </div>
+                            </a>
+                            <!-- FIM CATEGORIAS FILHAS -->
+                        <?php endforeach; ?>
+                    <?php endforeach; ?>
                 </div>
                 <!-- FIM CATEGORIAS -->
 
@@ -63,15 +60,23 @@
 
                             <div class="row produtos">
                                 <div class="col-md-12">
-                                    <h3>Centro de Tratamento de Sementes</h3>
-                                    <h2>CTS cc250 st</h2>
+                                    <h3><?= $produto->categoria->nome; ?></h3>
+                                    <h2><?= $produto->nome; ?></h2>
                                     <hr style="border-top: 2px solid #ccc;">
                                 </div>
-                                <img class="thumb-produto" src="<?= BASE_URL; ?>arquivos/assets/img/produtos/produto-thumb.png">
+
+                                <div class="slideProduto owl-carousel owl-theme">
+                                    <?php foreach ($imagens as $img): ?>
+                                        <img class="thumb-produto" src="<?= BASE_STORANGE; ?>produto/<?= $produto->id_produto; ?>/<?= $img->imagem; ?>">
+                                    <?php endforeach; ?>
+                                </div>
+
                             </div>
                             <hr style="border-top: 2px solid #ccc;">
                             <div class="text-center">
-                                <button type="button" class="btn btn-solicitar-orcamento">SOLICITE UM ORÇAMENTO</button>
+                                <a href="<?= BASE_URL; ?>contato">
+                                    <button type="button" class="btn btn-solicitar-orcamento">SOLICITE UM ORÇAMENTO</button>
+                                </a>
                                 <p style="font-size: 13px; letter-spacing: 2px">SEM COMPROMISSO</p>
                             </div>
                             <br>
@@ -82,9 +87,7 @@
                                     <hr style="border-top: 2px solid #ccc;">
                                 </div>
                                 <p class="container">
-                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec eget metus eget est finibus lobortis. Ut efficitur, ex vitae volutpat tempor, arcu leo aliquam velit, et pulvinar diam massa vitae elit. Fusce mollis augue elit, vel tincidunt lectus iaculis tincidunt. Quisque elit dui, ornare id orci sit amet, vestibulum porta nibh. Praesent volutpat, purus a hendrerit accumsan, ligula massa lobortis turpis, vel imperdiet est orci a tortor. Mauris tempus lacinia tellus, eu convallis ligula bibendum et. Vestibulum nec leo sodales, consequat risus vel, porttitor justo. Aenean fringilla ante vitae odio volutpat hendrerit.
-
-                                    Aliquam auctor risus at fringilla luctus. Donec scelerisque dui mi, sed congue neque condimentum vitae. Curabitur malesuada leo in felis posuere consequat. Proin tincidunt hendrerit leo, et consectetur diam efficitur in. Curabitur molestie, dolor quis facilisis faucibus, est eros molestie nulla, vitae dignissim risus ipsum ut erat. Sed ligula urna, tempus id arcu at, ullamcorper ornare eros. Aliquam eleifend risus nec diam hendrerit efficitur. Vestibulum rhoncus leo eu est maximus convallis. Donec felis nibh, fringilla vitae justo vitae, finibus venenatis ante. Aenean ac eleifend leo, mattis consequat ipsum.
+                                    <?= $produto->descricao; ?>
                                 </p>
                             </div>
 

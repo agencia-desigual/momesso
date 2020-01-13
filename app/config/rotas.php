@@ -25,6 +25,7 @@ $Rotas->on("GET","noticia-detalhes","Principal::noticiaDetalhes");
 $Rotas->on("GET","produtos/categoria/{p}/{p}","Produto::exibirCategoria");
 $Rotas->on("GET","produtos/detalhe/{p}/{p}","Produto::detalhes");
 $Rotas->on("GET","produtos","Produto::exibirTodos");
+$Rotas->on("GET","produtos/{p}/{p}","Produto::detalhes");
 $Rotas->on("GET","produtos/{p}","Produto::exibirTodos");
 
 /*************************

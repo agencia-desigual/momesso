@@ -32,6 +32,7 @@
 <script src="<?= BASE_URL; ?>arquivos/plugins/sweetalert/sweetalert2.all.js" defer=""></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.10/jquery.mask.js"></script>
 <script src="<?= BASE_URL; ?>arquivos/plugins/dropify/js/dropify.js" defer=""></script>
+<script src="<?= BASE_URL; ?>arquivos/plugins/owl.carousel/dist/owl.carousel.min.js"></script>
 
 <script src="<?= BASE_URL.'arquivos/assets/js/funcoes.js' ?>"></script>
 
@@ -81,6 +82,15 @@
         });
         // END >> Dropify
 
+
+        // Banner Produto
+        $('.slideProduto').owlCarousel({
+            loop:true,
+            margin: 0,
+            nav:false,
+            items:1,
+            autoplay: true,
+        });
     });
 </script>
 
