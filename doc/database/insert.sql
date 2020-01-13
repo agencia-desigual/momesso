@@ -196,7 +196,7 @@ INSERT INTO `produto` (`id_produto`, `id_categoria`, `nome`, `descricao`, `slug`
 --
 
 INSERT INTO `usuario` (`id_usuario`, `nome`, `email`, `senha`) VALUES
-(1, 'Edilson Pereira', 'edilson@desigual.com.br', '202cb962ac59075b964b07152d234b70');
+(2, 'Edilson Pereira', 'edilson@desigual.com.br', '202cb962ac59075b964b07152d234b70');
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

@@ -58,16 +58,16 @@
                         <div class="row produtos">
 
                             <?php foreach ($produtos as $produto): ?>
-                                <a class="text-decoration-none"
-                                   href="<?= BASE_URL; ?>produtos/<?= $produto->id_produto; ?>/<?= $produto->slug; ?>">
-                                    <div class="col-md-4">
+                                <div class="col-md-4">
+                                    <a class="text-decoration-none"
+                                       href="<?= BASE_URL; ?>produtos/<?= $produto->id_produto; ?>/<?= $produto->slug; ?>">
                                         <div class="card-produto">
                                             <h4><?= $produto->nome; ?></h4>
                                             <hr style="border-bottom: 2px solid #f47920;width: 100%;">
                                             <img src="<?= $produto->capa; ?>">
                                         </div>
-                                    </div>
-                                </a>
+                                    </a>
+                                </div>
                             <?php endforeach; ?>
 
                         </div>

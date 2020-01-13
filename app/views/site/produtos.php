@@ -66,16 +66,16 @@
                                 </div>
 
                                 <?php foreach ($prod["produtos"] as $produto): ?>
-                                    <a class="text-decoration-none"
-                                       href="<?= BASE_URL; ?>produtos/<?= $produto->id_produto; ?>/<?= $produto->slug; ?>">
                                         <div class="col-md-4">
-                                            <div class="card-produto">
-                                                <h4><?= $produto->nome; ?></h4>
-                                                <hr style="border-bottom: 2px solid #f47920;width: 100%;">
-                                                <img src="<?= $produto->capa; ?>">
-                                            </div>
+                                            <a class="text-decoration-none"
+                                               href="<?= BASE_URL; ?>produtos/<?= $produto->id_produto; ?>/<?= $produto->slug; ?>">
+                                                <div class="card-produto">
+                                                    <h4><?= $produto->nome; ?></h4>
+                                                    <hr style="border-bottom: 2px solid #f47920;width: 100%;">
+                                                    <img src="<?= $produto->capa; ?>">
+                                                </div>
+                                            </a>
                                         </div>
-                                    </a>
                                 <?php endforeach; ?>
                             </div>
 
