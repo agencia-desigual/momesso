@@ -32,6 +32,222 @@ class Produto extends Controller
     } // End >> fun::__construct()
 
 
+    /**
+     * Método responsável por exibir todos
+     * os produtos cadastrados. Ou de uma
+     * categoria mãe especifica.
+     * ----------------------------------------------
+     * @param null $slug
+     * ----------------------------------------------
+     * @method GET
+     * @url produtos
+     * @url produtos/[SLUG]
+     */
+    public function exibirTodos($slug = null)
+    {
+        // Variaveis
+        $dados = null;
+        $categorias = null;
+        $produtos = null;
+
+        // Where
+        $where = ["id_categoria_mae" => "IS NULL"];
+
+        // Busca os dados SEO
+        $dados = $this->getSEO();
+
+        // Se é os produtos de uma categoria especifica
+        if(!empty($slug))
+        {
+            // Adiciona a condição
+            $where["slug"] = $slug;
+        }
+
+
+        // Busca todas as categorias Mães
+        $categorias = $this->ObjModelCategoria
+            ->get($where)
+            ->fetchAll(\PDO::FETCH_OBJ);
+
+        // Verifica se encontrou a categoria
+        if(!empty($categorias))
+        {
+            // Percorre as categorias encontradas
+            foreach ($categorias as $cat)
+            {
+                // Busca as categorias filho
+                $catFilho = $this->ObjModelCategoria
+                    ->get(["id_categoria_mae" => $cat->id_categoria])
+                    ->fetchAll(\PDO::FETCH_OBJ);
+
+                // Percorre as categorias filho
+                foreach ($catFilho as $filho)
+                {
+                    // Busca os produtos
+                    $prod = $this->ObjModelProduto
+                        ->get(["id_categoria" => $filho->id_categoria], "id_produto DESC", 3)
+                        ->fetchAll(\PDO::FETCH_OBJ);
+
+                    // Percorre os produtos
+                    foreach ($prod as $p)
+                    {
+                        // Busca a imagem de capa do produto
+                        $imagem = $this->ObjModelImagem
+                            ->get(["id_produto" => $p->id_produto, "capa" => true])
+                            ->fetch(\PDO::FETCH_OBJ);
+
+                        // Verifica se teve retorno
+                        if(!empty($imagem))
+                        {
+                            // Adiciona a imagem ao produto
+                            $p->capa = BASE_STORANGE . "produto/" . $p->id_produto . "/" . $imagem->imagem;
+                        }
+                        else
+                        {
+                            // N possui imagem
+                            $p->capa = BASE_URL . "arquivos/assets/img/not-found.jpg";
+                        }
+                    }
+
+
+                    // Busca os produtos relacionados
+                    $produtos[] = [
+                        "categoria" => $filho,
+                        "produtos" => $prod,
+                    ];
+                }
+
+                // Add as categorias filhos
+                $cat->categorias = $catFilho;
+            }
+
+            // Adiciona o conteuda ao array de exibição
+            $dados["categorias"] = $categorias;
+            $dados["produtos"] = $produtos;
+
+            // Chama a view de produtos
+            $this->view("site/produtos",$dados);
+        }
+        else
+        {
+            // Chama a view
+            $this->view("site/error/404");
+
+        } // Error - 404
+
+    } // End >> fun::exibirTodos()
+
+
+    /**
+     * Método responsável por criar uma view
+     * que exiba os produtos de uma categoria
+     * especifica.
+     * ----------------------------------------------
+     * @param null $id
+     * @param null $slug
+     * ----------------------------------------------
+     * @method GET
+     * @url produtos/categoria/[ID]/[SLUG]
+     */
+    public function exibirCategoria($id = null, $slug = null)
+    {
+        // Variaveis
+        $dados = null;
+        $categoria = null;
+        $categoriaMae = null;
+        $produtos = null;
+
+        // Busca o SEO
+        $dados = $this->getSEO();
+
+        // Busca a categoria
+        $categoria = $this->ObjModelCategoria
+            ->get(["id_categoria" => $id, "slug" => $slug])
+            ->fetch(\PDO::FETCH_OBJ);
+
+        // Verifica se encontrou a categoria
+        if(!empty($categoria))
+        {
+            // Verifica se é categoria mãe
+            if(!empty($categoria->id_categoria_mae))
+            {
+                // Busca a categoria mae
+                $categoriaMae = $this->ObjModelCategoria
+                    ->get(["id_categoria" => $categoria->id_categoria_mae])
+                    ->fetch(\PDO::FETCH_OBJ);
+
+                // Busca as categorias da categoria mae
+                $categoriaMae->categorias = $this->ObjModelCategoria
+                    ->get(["id_categoria_mae" => $categoriaMae->id_categoria])
+                    ->fetchAll(\PDO::FETCH_OBJ);
+
+                // Busca os produtos da categoria atual
+                $produtos = $this->ObjModelProduto
+                    ->get(["id_categoria" => $categoria->id_categoria])
+                    ->fetchAll(\PDO::FETCH_OBJ);
+
+                // Percorre todos os produtos
+                foreach ($produtos as $prod)
+                {
+                    // Busca a imagem
+                    $imagem = $this->ObjModelImagem
+                        ->get(["id_produto" => $prod->id_produto, "capa" => true])
+                        ->fetch(\PDO::FETCH_OBJ);
+
+                    // Verifica se possui
+                    if(!empty($imagem))
+                    {
+                        // Add a capa
+                        $prod->capa = BASE_STORANGE . "produto/" . $prod->id_produto . "/" . $imagem->imagem;
+                    }
+                    else
+                    {
+                        // Não possui caoa
+                        $prod->capa = BASE_URL . "arquivos/assets/img/not-found.jpg";
+                    }
+                }
+
+                // Array de exibição na view
+                $dados["categorias"] = $categoriaMae;
+                $dados["categoria"] = $categoria;
+                $dados["produtos"] = $produtos;
+
+                // Chama a view
+                $this->view("site/produtos-categoria", $dados);
+            }
+            else
+            {
+                // Chama a exibirTodos
+                $this->exibirTodos($slug);
+            } // É categoria mãe
+        }
+        else
+        {
+            // Chama a view
+            $this->view("site/error/404");
+        } // Error - 404
+
+    } // End >> fun::exibirCategoria()
+
+
+    /**
+     * FALTA FINALIZAR
+     */
+    public function detalhes()
+    {
+        $dados = $this->getSEO();
+
+        // Chama a view de produtos
+        $this->view("site/produto-detalhes",$dados);
+
+    } // End >> fun::detalhes()
+
+
+
+    /**************************************************
+     **                MÉTODO PAINEL
+     **************************************************/
+
 
     /**
      * Método responsável por gerar uma view que

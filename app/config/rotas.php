@@ -8,17 +8,24 @@ $Rotas->onError("404", "Principal::error404");
  * SITE EXTERNO
  *************************/
 
+// Páginas Institucionais
 $Rotas->on("GET","","Principal::index");
 $Rotas->on("GET","empresa","Principal::empresa");
 $Rotas->on("GET","diferencial","Principal::diferencial");
 $Rotas->on("GET","trabalhe-conosco","Principal::trabalheConosco");
 $Rotas->on("GET","cimbria","Principal::cimbria");
 $Rotas->on("GET","contato","Principal::contato");
-$Rotas->on("GET","noticias","Principal::noticias");
-$Rotas->on("GET","noticia-detalhes","Principal::noticiaDetalhes");
-$Rotas->on("GET","produtos","Principal::produtos");
-$Rotas->on("GET","produto-detalhes","Principal::produtoDetalhes");
 
+// Noticias
+$Rotas->on("GET","noticias","Noticia::exibirTodas");
+$Rotas->on("GET","noticias/{p}/{p}","Noticia::especifica");
+$Rotas->on("GET","noticia-detalhes","Principal::noticiaDetalhes");
+
+// Produtos
+$Rotas->on("GET","produtos/categoria/{p}/{p}","Produto::exibirCategoria");
+$Rotas->on("GET","produtos/detalhe/{p}/{p}","Produto::detalhes");
+$Rotas->on("GET","produtos","Produto::exibirTodos");
+$Rotas->on("GET","produtos/{p}","Produto::exibirTodos");
 
 /*************************
  * FUNCOES AJAX
