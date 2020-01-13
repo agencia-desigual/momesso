@@ -4,6 +4,8 @@
 
     .menu-mobile { display: block; }
 
+    .bg-opacity { top: 96px; }
+
 }
 
 @media only screen and (max-width: 767px) {
