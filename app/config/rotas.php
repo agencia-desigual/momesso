@@ -15,6 +15,7 @@ $Rotas->on("GET","trabalhe-conosco","Principal::trabalheConosco");
 $Rotas->on("GET","cimbria","Principal::cimbria");
 $Rotas->on("GET","contato","Principal::contato");
 $Rotas->on("GET","noticias","Principal::noticias");
+$Rotas->on("GET","noticia-detalhes","Principal::noticiaDetalhes");
 $Rotas->on("GET","produtos","Principal::produtos");
 $Rotas->on("GET","produto-detalhes","Principal::produtoDetalhes");
 

@@ -521,6 +521,17 @@ footer
     background-size: cover;
 }
 
+.bg-opacity
+{
+    background-color: rgba(0, 0, 0, 0.6901960784313725);
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    height: auto;
+}
+}
+
 .titulo-breadcump
 {
     text-align: center;

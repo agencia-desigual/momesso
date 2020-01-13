@@ -47,7 +47,7 @@
                                 <div class="col-lg-6">
                                     <div class="form-group focused">
                                         <label class="form-control-label">Url Amigável</label>
-                                        <p><?= $produto->descricao; ?></p>
+                                        <p><?= $produto->slug; ?></p>
                                     </div>
                                 </div>
                             </div>

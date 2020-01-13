@@ -110,6 +110,15 @@ class Principal extends CI_controller
         $this->view("site/noticias",$dados);
     }
 
+    public function noticiaDetalhes()
+    {
+        //Pegar o SEO da noticia, principalmento do SMO do face
+        $dados = $this->getSEO();
+
+        // Chama a view de noticias
+        $this->view("site/noticia-detalhes",$dados);
+    }
+
     public function produtos()
     {
         $dados = $this->getSEO();
