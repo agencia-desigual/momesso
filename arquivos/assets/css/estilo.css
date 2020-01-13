@@ -528,11 +528,13 @@ footer
     color: #fff;
     font-weight: 900;
     margin-top: 60px;
+    text-transform: uppercase;
 }
 
 .caminho-breadcump
 {
     color: #e39e2c;
+    text-transform: uppercase;
 }
 
 .caminho-breadcump a

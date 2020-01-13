@@ -41,7 +41,9 @@ class Controller
     {
         if($tipo == "array")
         {
-            echo "<pre>" . $item . "</pre>";
+            echo "<pre>";
+            echo var_dump($item);
+            echo "</pre>";
         }
         else
         {

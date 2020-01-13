@@ -24,42 +24,28 @@
     <div class="container">
 
         <div class="row margin-conteudo">
-            <div class="col-md-4">
-                <div class="card-noticias">
-                    <div class="thumb-noticias" style="background-image: url('<?= BASE_URL; ?>arquivos/assets/img/noticias/thumb-noticia-1.png');"></div>
-                    <div style="padding: 10px 25px;">
-                        <div class="titulo-noticias">
-                            <h4>momesso terá participação de destaque no xxxvi ciclo em reuniões conjuntas da csm-pr focando nos beneficios da alta qualidade.</h4>
+            <?php if(!empty($noticias)): ?>
+                <?php foreach ($noticias as $not): ?>
+                    <div class="col-md-4">
+                        <div class="card-noticias">
+                            <div class="thumb-noticias"
+                                 style="background-image: url('<?= BASE_URL; ?><?= (!empty($not->imagem)) ? "storage/noticia/" . $not->imagem : "arquivos/assets/img/not-found.jpg" ?>');"></div>
+
+                            <div style="padding: 10px 25px;">
+                                <div class="titulo-noticias">
+                                    <h4><?= $not->nome; ?></h4>
+                                </div>
+
+                                <br>
+
+                                <a class="btn btn-leia-mais" href="<?= BASE_URL; ?>noticias/<?= $not->id_noticia; ?>/<?= $not->slug; ?>">LEIA MAIS</a>
+                            </div>
                         </div>
-                        <br>
-                        <button type="button" class="btn btn-leia-mais">LEIA MAIS</button>
                     </div>
-                </div>
-            </div>
-            <div class="col-md-4">
-                <div class="card-noticias">
-                    <div class="thumb-noticias" style="background-image: url('<?= BASE_URL; ?>arquivos/assets/img/noticias/thumb-noticia-1.png');"></div>
-                    <div style="padding: 10px 25px;">
-                        <div class="titulo-noticias">
-                            <h4>momesso terá participação de destaque no xxxvi ciclo em reuniões conjuntas da csm-pr focando nos beneficios da alta qualidade.</h4>
-                        </div>
-                        <br>
-                        <button type="button" class="btn btn-leia-mais">LEIA MAIS</button>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4">
-                <div class="card-noticias">
-                    <div class="thumb-noticias" style="background-image: url('<?= BASE_URL; ?>arquivos/assets/img/noticias/thumb-noticia-1.png');"></div>
-                    <div style="padding: 10px 25px;">
-                        <div class="titulo-noticias">
-                            <h4>momesso terá participação de destaque no xxxvi ciclo em reuniões conjuntas da csm-pr focando nos beneficios da alta qualidade.</h4>
-                        </div>
-                        <br>
-                        <button type="button" class="btn btn-leia-mais">LEIA MAIS</button>
-                    </div>
-                </div>
-            </div>
+                <?php endforeach; ?>
+            <?php else: ?>
+                <p>Nenhuma notícia cadastrada.</p>
+            <?php endif; ?>
         </div>
 
     </div>

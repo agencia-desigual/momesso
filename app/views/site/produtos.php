@@ -29,29 +29,27 @@
                 <!-- CATEGORIAS -->
                 <div class="col-md-4">
 
-                    <!-- CATEGORIA PAI -->
-                    <div class="thumb-categoria-produto" style="background-image: url('<?= BASE_URL ?>arquivos/assets/img/produtos/thumb-categoria.png');">
-                        <h4>AGRO</h4>
-                    </div>
-                    <!-- FIM CATEGORIA PAI -->
+                    <?php foreach ($categorias as $cat): ?>
+                        <!-- CATEGORIA PAI -->
+                        <div class="thumb-categoria-produto"
+                             style="background-image: url('<?= BASE_STORANGE ?>categoria/<?= $cat->imagem; ?>');">
+                            <h4><?= $cat->nome; ?></h4>
+                        </div>
+                        <!-- FIM CATEGORIA PAI -->
 
-                    <!-- CATEGORIAS FILHAS -->
-                    <div class="categorias-filhas">
+                        <?php foreach ($cat->categorias as $catFilho): ?>
+                            <!-- CATEGORIAS FILHAS -->
+                            <a href="<?= BASE_URL; ?>produtos/categoria/<?= $catFilho->id_categoria; ?>/<?= $catFilho->slug; ?>" class="text-decoration-none">
+                                <div class="categorias-filhas">
 
-                        <img src="<?= BASE_URL; ?>arquivos/assets/img/produtos/icone-drop.png">
-                        <h5>Categorias Filhas</h5>
-                        <hr>
-                    </div>
-
-                    <div class="categorias-filhas">
-
-                        <img src="<?= BASE_URL; ?>arquivos/assets/img/produtos/icone-drop.png">
-                        <h5>Categorias Filhas</h5>
-                        <hr>
-                    </div>
-                    <!-- FIM CATEGORIAS FILHAS -->
-
-
+                                    <img src="<?= BASE_URL; ?>arquivos/assets/img/produtos/icone-drop.png">
+                                    <h5><?= $catFilho->nome; ?></h5>
+                                    <hr>
+                                </div>
+                            </a>
+                            <!-- FIM CATEGORIAS FILHAS -->
+                        <?php endforeach; ?>
+                    <?php endforeach; ?>
                 </div>
                 <!-- FIM CATEGORIAS -->
 
@@ -60,40 +58,34 @@
 
                     <div class="borda-left">
                     <div class="container">
-
-                        <div class="row produtos">
-                            <div class="col-md-12">
-                                <h3>Centro de Tratamento de Sementes</h3>
-                                <hr style="border-top: 2px solid #ccc;">
-                            </div>
-                            <div class="col-md-4">
-                                <div class="card-produto">
-                                    <h4>cts cc250 st</h4>
-                                    <hr style="border-bottom: 2px solid #f47920;width: 100%;">
-                                    <img src="<?= BASE_URL; ?>arquivos/assets/img/produtos/produto.png">
+                        <?php foreach ($produtos as $prod): ?>
+                            <div class="row produtos">
+                                <div class="col-md-12">
+                                    <h3><?= $prod["categoria"]->nome; ?></h3>
+                                    <hr style="border-top: 2px solid #ccc;">
                                 </div>
 
+                                <?php foreach ($prod["produtos"] as $produto): ?>
+                                    <a class="text-decoration-none"
+                                       href="<?= BASE_URL; ?>produtos/<?= $produto->id_produto; ?>/<?= $produto->slug; ?>">
+                                        <div class="col-md-4">
+                                            <div class="card-produto">
+                                                <h4><?= $produto->nome; ?></h4>
+                                                <hr style="border-bottom: 2px solid #f47920;width: 100%;">
+                                                <img src="<?= $produto->capa; ?>">
+                                            </div>
+                                        </div>
+                                    </a>
+                                <?php endforeach; ?>
                             </div>
-                            <div class="col-md-4">
-                                <div class="card-produto">
-                                    <h4>cts cc250 st</h4>
-                                    <hr style="border-bottom: 2px solid #f47920;width: 100%;">
-                                    <img src="<?= BASE_URL; ?>arquivos/assets/img/produtos/produto.png">
-                                </div>
 
-                            </div>
-                            <div class="col-md-4">
-                                <div class="card-produto">
-                                    <h4>cts cc250 st</h4>
-                                    <hr style="border-bottom: 2px solid #f47920;width: 100%;">
-                                    <img src="<?= BASE_URL; ?>arquivos/assets/img/produtos/produto.png">
+                            <a class="text-decoration-none"
+                               href="<?= BASE_URL; ?>produtos/categoria/<?= $prod["categoria"]->id_categoria; ?>/<?= $prod["categoria"]->slug; ?>">
+                                <div class="text-center pb-5">
+                                    <button type="button" class="btn btn-todos-produtos">VER TODOS</button>
                                 </div>
-
-                            </div>
-                        </div>
-                        <div class="text-center">
-                            <button type="button" class="btn btn-todos-produtos">VER TODOS</button>
-                        </div>
+                            </a>
+                        <?php endforeach; ?>
 
                     </div>
                     </div>

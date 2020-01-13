@@ -3,37 +3,37 @@
     <!-- BANNER PRINCIPAL -->
     <div class="banner-principal" style="background-image: url('<?= BASE_URL ?>arquivos/assets/img/banner-home.png');">
 
-    <div class="container">
-        <div class="row">
-            
-            <div class="col-md-6">
-                <div class="centraliza-itens altura-80">
-                    <div>
-                        <p class="titulo-banner-principal">
-                            Hora de semear boas<br>
-                            colheitas para <?php echo date("Y"); ?>.<br>
-                            Garantia de produtividade,<br>
-                            vigor e germinação<br>
-                        </p>
-                        <p class="sub-titulo-banner-principal">
-                            Aproveite o momento para revisar seus equipamentos e garantir seu tratamento de sementes com o programa Momesso Ready.
-                        </p>
-                        <div style="text-align: left">
-                            <button type="button" class="btn btn-banner">CONHEÇA</button>
+        <div class="container">
+            <div class="row">
+
+                <div class="col-md-6">
+                    <div class="centraliza-itens altura-80">
+                        <div>
+                            <p class="titulo-banner-principal">
+                                Hora de semear boas<br>
+                                colheitas para <?php echo date("Y"); ?>.<br>
+                                Garantia de produtividade,<br>
+                                vigor e germinação<br>
+                            </p>
+                            <p class="sub-titulo-banner-principal">
+                                Aproveite o momento para revisar seus equipamentos e garantir seu tratamento de sementes com o programa Momesso Ready.
+                            </p>
+                            <div style="text-align: left">
+                                <button type="button" class="btn btn-banner">CONHEÇA</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-6">
+                    <div class="centraliza-itens altura-80">
+                        <div>
+                            <img class="remover-img-767" width="300px" src="<?= BASE_URL; ?>arquivos/assets/img/momesso_ready_logo.png">
                         </div>
                     </div>
                 </div>
             </div>
-            
-            <div class="col-md-6">
-                <div class="centraliza-itens altura-80">
-                    <div>
-                        <img class="remover-img-767" width="300px" src="<?= BASE_URL; ?>arquivos/assets/img/momesso_ready_logo.png">
-                    </div>
-                </div>
-            </div>
         </div>
-    </div>
 
     </div>
     <!-- FIM BANNER -->
@@ -62,47 +62,34 @@
 
             <div style="border-left: 5px solid #f47920;height: 30px;display: inline;margin-right: 15px;"></div>
             <p style="font-size: 20px;font-weight: 900;display: inline;">NOTÍCIAS</p>
-            <div style="display: inline; float: right"><button type="button" class="btn btn-todas-noticias">VER TODAS</button></div>
+            <div style="display: inline; float: right"><a href="<?= BASE_URL; ?>noticias" class="btn btn-todas-noticias">VER TODAS</a></div>
+
             <br>
             <br>
             <hr>
+
             <div class="row">
-                <div class="col-md-4">
-                    <div class="card-noticias">
-                        <div class="thumb-noticias" style="background-image: url('<?= BASE_URL; ?>arquivos/assets/img/noticias/thumb-noticia-1.png');"></div>
-                        <div style="padding: 10px 25px;">
-                            <div class="titulo-noticias">
-                                <h4>momesso terá participação de destaque no xxxvi ciclo em reuniões conjuntas da csm-pr focando nos beneficios da alta qualidade.</h4>
+                <?php if(!empty($noticias)): ?>
+                    <?php foreach ($noticias as $not): ?>
+                        <div class="col-md-4">
+                            <div class="card-noticias">
+                                <div class="thumb-noticias" style="background-image: url('<?= $not->imagem; ?>');"></div>
+
+                                <div style="padding: 10px 25px;">
+                                    <div class="titulo-noticias">
+                                        <h4><?= $not->nome; ?></h4>
+                                    </div>
+
+                                    <br>
+
+                                    <a class="btn btn-leia-mais" href="<?= BASE_URL; ?>noticias/<?= $not->id_noticia; ?>/<?= $not->slug; ?>">LEIA MAIS</a>
+                                </div>
                             </div>
-                            <br>
-                            <button type="button" class="btn btn-leia-mais">LEIA MAIS</button>
                         </div>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="card-noticias">
-                        <div class="thumb-noticias" style="background-image: url('<?= BASE_URL; ?>arquivos/assets/img/noticias/thumb-noticia-1.png');"></div>
-                        <div style="padding: 10px 25px;">
-                            <div class="titulo-noticias">
-                                <h4>momesso terá participação de destaque no xxxvi ciclo em reuniões conjuntas da csm-pr focando nos beneficios da alta qualidade.</h4>
-                            </div>
-                            <br>
-                            <button type="button" class="btn btn-leia-mais">LEIA MAIS</button>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="card-noticias">
-                        <div class="thumb-noticias" style="background-image: url('<?= BASE_URL; ?>arquivos/assets/img/noticias/thumb-noticia-1.png');"></div>
-                        <div style="padding: 10px 25px;">
-                            <div class="titulo-noticias">
-                                <h4>momesso terá participação de destaque no xxxvi ciclo em reuniões conjuntas da csm-pr focando nos beneficios da alta qualidade.</h4>
-                            </div>
-                            <br>
-                            <button type="button" class="btn btn-leia-mais">LEIA MAIS</button>
-                        </div>
-                    </div>
-                </div>
+                    <?php endforeach; ?>
+                <?php else: ?>
+                    <p>Nenhuma notícia cadastrada.</p>
+                <?php endif; ?>
             </div>
 
         </div>
@@ -138,42 +125,27 @@
             <br>
             <!-- PRODUTOS -->
             <div class="row">
-                <div class="col-md-4">
-                    <div class="card-produto-home">
-                        <h4>MESA DENSIMETRICA</h4>
-                        <hr style="border-bottom: 2px solid #f47920;width: 100%;">
-                        <img src="<?= BASE_URL; ?>arquivos/assets/img/produtos/mesa.png">
-                        <br>
-                        <br>
-                        <div class="text-center">
-                            <button type="button" class="btn btn-card-produto-home">CONHEÇA</button>
+                <?php if(!empty($produtos)): ?>
+                    <?php foreach ($produtos as $prod): ?>
+                        <div class="col-md-4">
+                            <div class="card-produto-home">
+                                <h4><?= $prod->nome; ?></h4>
+
+                                <hr style="border-bottom: 2px solid #f47920;width: 100%;">
+
+                                <img src="<?= $prod->imagem; ?>">
+                                <br>
+                                <br>
+                                <div class="text-center">
+                                    <a href="<?= BASE_URL; ?>produto/<?= $prod->id_produto; ?>/<?= $prod->slug; ?>"
+                                       class="btn btn-card-produto-home">CONHEÇA</a>
+                                </div>
+                            </div>
                         </div>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="card-produto-home">
-                        <h4>MESA DENSIMETRICA</h4>
-                        <hr style="border-bottom: 2px solid #f47920;width: 100%;">
-                        <img src="<?= BASE_URL; ?>arquivos/assets/img/produtos/mesa.png">
-                        <br>
-                        <br>
-                        <div class="text-center">
-                            <button type="button" class="btn btn-card-produto-home">CONHEÇA</button>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="card-produto-home">
-                        <h4>MESA DENSIMETRICA</h4>
-                        <hr style="border-bottom: 2px solid #f47920;width: 100%;">
-                        <img src="<?= BASE_URL; ?>arquivos/assets/img/produtos/mesa.png">
-                        <br>
-                        <br>
-                        <div class="text-center">
-                            <button type="button" class="btn btn-card-produto-home">CONHEÇA</button>
-                        </div>
-                    </div>
-                </div>
+                    <?php endforeach; ?>
+                <?php else: ?>
+                    <p>Nenhum produto cadastrado.</p>
+                <?php endif; ?>
             </div>
             <!-- FIM PRODUTOS -->
         </div>

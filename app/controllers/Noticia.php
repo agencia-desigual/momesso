@@ -29,6 +29,90 @@ class Noticia extends Controller
 
 
     /**
+     * Método responsável por criar uma página com a
+     * listagem de todas as notícias no site externo.
+     * ------------------------------------------------
+     * @method GET
+     * @url noticias
+     */
+    public function exibirTodas()
+    {
+        // Variaveis
+        $dados = null;
+        $noticias = null;
+
+        // Recupera o SEO
+        $dados = $this->getSEO();
+
+        // Busca todas as noticias
+        $noticias = $this->ObjModelNoticia
+            ->get(null, "id_noticia DESC")
+            ->fetchAll(\PDO::FETCH_OBJ);
+
+        // Adiciona ao array de exibição
+        $dados["noticias"] = $noticias;
+
+        // Chama a view de noticias
+        $this->view("site/noticias", $dados);
+
+    } // End >> fun::exibirTodas()
+
+
+    /**
+     * Método responsável por criar uma página
+     * para exibir uma noticia especifica.
+     * ------------------------------------------------
+     * @param $id
+     * @param $slug
+     * ------------------------------------------------
+     * @method GET
+     * @url noticias/[ID]/[SLUG]
+     */
+    public function especifica($id, $slug)
+    {
+        // Variaveis
+        $dados = null;
+        $noticia = null;
+
+        // Busca a noticia
+        $noticia = $this->ObjModelNoticia
+            ->get(["id_noticia" => $id, "slug" => $slug])
+            ->fetch(\PDO::FETCH_OBJ);
+
+        // Verifica se encontrou a noticia
+        if(!empty($noticia))
+        {
+            // Seo
+            $seo = [
+                "title" => $noticia->nome . " | " .SITE_NOME,
+                "description" => $noticia->resumo,
+                "keywords" => $noticia->palavras_chave
+            ];
+
+            // Monta o dados
+            $dados = $this->getSEO($seo);
+
+            // Add a noticia
+            $dados["noticia"] = $noticia;
+
+            // Chama a view
+            $this->view("site/noticia-especifica", $dados);
+        }
+        else
+        {
+            // Chama a view
+            $this->view("site/erro/404");
+        } // Erro 404
+
+    } // End >> fun::especifica()
+
+
+    /**************************************************
+     **                MÉTODO PAINEL
+     **************************************************/
+
+
+    /**
      * Método responsável por montar uma view
      * para exibir todas as noticias cadastradas.
      * ------------------------------------------------

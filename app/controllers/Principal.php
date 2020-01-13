@@ -37,14 +37,70 @@ class Principal extends CI_controller
      */
     public function index()
     {
+        // Variaveis
+        $dados = null;
+        $noticias = null;
+        $produtos = null;
 
+        // Objetos
+        $ObjNoticia = new \Model\Noticia();
+        $ObjProduto = new \Model\Produto();
+        $ObjImagem  = new \Model\Imagem();
 
         // Busca o SEO
         $dados = $this->getSEO();
 
 
+        // Busca as 3 ultimas noticias
+        $noticias = $ObjNoticia->get(null, "id_noticia DESC", 3)
+            ->fetchAll(\PDO::FETCH_OBJ);
+
+        // Percorre todos as noticias
+        foreach ($noticias as $not)
+        {
+            // Verifica se tem imagem
+            if(!empty($not->imagem))
+            {
+                $not->imagem = BASE_STORANGE . "noticia/" . $not->imagem;
+            }
+            else
+            {
+                $not->imagem = BASE_URL . "arquivos/assets/img/not-found.jpg";
+            }
+        }
+
+
+
+        // Busca os 3 ultimos produtos
+        $produtos = $ObjProduto->get(null, "id_produto DESC", 3)
+            ->fetchAll(\PDO::FETCH_OBJ);
+
+        // Percorre todos os produtos
+        foreach ($produtos as $prod)
+        {
+            // Busca a capa
+            $imagem = $ObjImagem
+                ->get(["id_produto" => $prod->id_produto, "capa" => true])
+                ->fetch(\PDO::FETCH_OBJ);
+
+            // Verifica a tem imagem
+            if(!empty($imagem))
+            {
+                $prod->imagem = BASE_STORANGE . "produto/{$prod->id_produto}/" . $imagem->imagem;
+            }
+            else
+            {
+                $prod->imagem = BASE_URL . "arquivos/assets/img/not-found.jpg";
+            }
+        }
+
+
+        // Adiciona ao array
+        $dados["noticias"] = $noticias;
+        $dados["produtos"] = $produtos;
+
         // Chama a view da home
-        $this->view("site/index",$dados);
+        $this->view("site/index", $dados);
 
     } // End >> fun>::error404()
 
@@ -62,6 +118,12 @@ class Principal extends CI_controller
     } // End >> fun>::error404()
 
 
+    /**
+     * Página de contato.
+     * ------------------------------------------------
+     * @method GET
+     * @url BASE_URL/contato
+     */
     public function contato()
     {
         $dados = $this->getSEO();
@@ -70,6 +132,13 @@ class Principal extends CI_controller
         $this->view("site/contato",$dados);
     }
 
+
+    /**
+     * Página institucional sobre a empresa
+     * ------------------------------------------------
+     * @method GET
+     * @url BASE_URL/empresa
+     */
     public function empresa()
     {
         $dados = $this->getSEO();
@@ -78,6 +147,13 @@ class Principal extends CI_controller
         $this->view("site/empresa",$dados);
     }
 
+
+    /**
+     * Página Diferencial
+     * ------------------------------------------------
+     * @method GET
+     * @url BASE_URL/diferencial
+     */
     public function diferencial()
     {
         $dados = $this->getSEO();
@@ -86,6 +162,13 @@ class Principal extends CI_controller
         $this->view("site/diferencial",$dados);
     }
 
+
+    /**
+     * Página sobre a parceira cimbria
+     * ------------------------------------------------
+     * @method GET
+     * @url BASE_URL/cimbria
+     */
     public function cimbria()
     {
         $dados = $this->getSEO();
@@ -94,6 +177,13 @@ class Principal extends CI_controller
         $this->view("site/cimbria",$dados);
     }
 
+
+    /**
+     * Página com formulário para envio de curriculo
+     * ------------------------------------------------
+     * @method GET
+     * @url BASE_URL/trabalhe-conosco
+     */
     public function trabalheConosco()
     {
         $dados = $this->getSEO();
@@ -102,35 +192,13 @@ class Principal extends CI_controller
         $this->view("site/trabalhe-conosco",$dados);
     }
 
-    public function noticias()
-    {
-        $dados = $this->getSEO();
-
-        // Chama a view de noticias
-        $this->view("site/noticias",$dados);
-    }
-
-    public function produtos()
-    {
-        $dados = $this->getSEO();
-
-        // Chama a view de produtos
-        $this->view("site/produtos",$dados);
-    }
-
-    public function produtoDetalhes()
-    {
-        $dados = $this->getSEO();
-
-        // Chama a view de produtos
-        $this->view("site/produto-detalhes",$dados);
-    }
-
 
 
     /**
      * Método responsável por validar  e fazer o
      * envio do formulario de contato do site.
+     * ------------------------------------------------
+     * @method POST
      */
     public function ajaxContato()
     {
@@ -204,6 +272,6 @@ class Principal extends CI_controller
 
         echo json_encode($dados);
 
-    } // End >> fun>::ajaxContato()
+    } // End >> fun::ajaxContato()
 
 } // END::Class Principal
