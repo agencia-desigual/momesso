@@ -703,12 +703,81 @@ footer
     font-weight: 900;
 }
 
+.btn-download-produto
+{
+    background-color: #f47920;
+    border: 2px solid #f47920;
+    color: #fff;
+    padding: 10px 30px;
+    font-weight: 900;
+    margin-bottom: 15px;
+}
+
+.btn-download-produto:hover
+{
+    background-color: transparent;
+    border: 2px solid #f47920;
+    color: #f47920;
+    font-weight: 900;
+}
+
 .margin-conteudo
 {
     margin-top: 60px;
     margin-bottom: 60px;
 }
 
+
+
+
+/*PERSONALIZAÇÃO DA MODAL DE DOWNLOAD*/
+.modal-content
+{
+    background-color: #fff !important;
+}
+
+.modal-content label
+{
+    color: #323232 !important;
+    font-size: 13px;
+}
+
+.modal-header
+{
+    border-bottom: 1px solid #3232323d;
+    background-color: #f47920;
+}
+
+.modal-footer
+{
+    border-top: 1px solid #3232323d;
+}
+
+.modal-title
+{
+    text-transform: uppercase;
+    font-size: 18px;
+    color: #fff;
+}
+
+.btn-download-form
+{
+    background-color: #f47920;
+    border: 2px solid #f47920;
+    color: #fff;
+    padding: 10px 30px;
+    font-weight: 900;
+    margin-bottom: 15px;
+    margin-top: 15px;
+}
+
+.btn-download-form:hover
+{
+    background-color: transparent;
+    border: 2px solid #f47920;
+    color: #f47920;
+    font-weight: 900;
+}
 
 
 /*
