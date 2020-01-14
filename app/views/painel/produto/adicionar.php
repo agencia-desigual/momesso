@@ -55,12 +55,24 @@
                                 </div>
                             </div>
 
+
                             <!-- Descricao -->
                             <div class="row">
                                 <div class="col-12">
                                     <div class="form-group focused">
                                         <label class="form-control-label">Descrição do Produto</label>
                                         <textarea class="form-control form-control-alternative" rows="5" name="descricao" required></textarea>
+                                    </div>
+                                </div>
+                            </div>
+
+
+                            <!-- Arquivo Downlo -->
+                            <div class="row">
+                                <div class="col-12">
+                                    <div class="form-group focused">
+                                        <label class="form-control-label">Arquivo Download (Opcional)</label>
+                                        <input type="file" name="arquivo" class="dropify" />
                                     </div>
                                 </div>
                             </div>

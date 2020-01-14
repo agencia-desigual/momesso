@@ -27,12 +27,24 @@
 
                             <!-- Nome -->
                             <div class="row">
-                                <div1 class="col-12">
+                                <div class="col-lg-6">
                                     <div class="form-group focused">
                                         <label class="form-control-label">Nome</label>
                                         <p><?= $produto->nome; ?></p>
                                     </div>
-                                </div1>
+                                </div>
+                                <div class="col-lg-6">
+                                    <div class="form-group focused">
+                                        <label class="form-control-label" style="display: block">Arquivo</label>
+                                        <?php if(!empty($produto->download)): ?>
+                                            <a href="<?= BASE_STORANGE; ?>produto/<?= $produto->id_produto; ?>/<?= $produto->download; ?>" download="">
+                                                <button type="button" class="btn btn-outline-primary">Download</button>
+                                            </a>
+                                        <?php else: ?>
+                                            <p>Não Possui</p>
+                                        <?php endif; ?>
+                                    </div>
+                                </div>
                             </div>
 
                             <!-- Categoria e Slug -->

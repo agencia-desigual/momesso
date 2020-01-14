@@ -74,6 +74,16 @@
                                 </div>
                             </div>
 
+                            <!-- Arquivo Downlo -->
+                            <div class="row">
+                                <div class="col-12">
+                                    <div class="form-group focused">
+                                        <label class="form-control-label">Arquivo Download (Opcional)</label>
+                                        <input type="file" name="arquivo" class="dropify" />
+                                    </div>
+                                </div>
+                            </div>
+
                             <!-- Botão -->
                             <div class="row">
                                 <div class="col-12">

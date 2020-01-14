@@ -7,6 +7,7 @@ namespace Controller;
 use Helper\Seguranca;
 use Model\Imagem;
 use Sistema\Controller;
+use Sistema\Helper\File;
 
 // Classe
 class Produto extends Controller
@@ -554,6 +555,13 @@ class Produto extends Controller
             // Deleta o produto
             if($this->ObjModelProduto->delete(["id_produto" => $id]) != false)
             {
+                // Verifica se tinha arquivo
+                if(!empty($produto->download))
+                {
+                    // Deleta o arquivo
+                    unlink("./storage/produto/{$id}/{$produto->download}");
+                }
+
                 // Deleta a pasta do produto
                 rmdir("./storage/produto/{$id}/");
 
@@ -646,6 +654,48 @@ class Produto extends Controller
 
                     // Adiciona a categoria
                     $produto->categoria = $categoria;
+
+                    // Verifica se possui arquivo
+                    if($_FILES["arquivo"]["size"] > 0)
+                    {
+                        // Instancia o objeto
+                        $objUpload = new File();
+
+                        // Informa os requisitos
+                        $objUpload->setFile($_FILES["arquivo"]);
+                        $objUpload->setStorange("./storage/produto/{$produto->id_produto}/");
+                        $objUpload->setMaxSize(30 * MB);
+
+                        // Realiza o upload
+                        $arquivo = $objUpload->upload();
+
+                        // Verifica se deu certo
+                        if($arquivo != false)
+                        {
+                            // Inclui na tabela
+                            $this->ObjModelProduto
+                                ->update([
+                                    "download" => $arquivo
+                                ],[
+                                    "id_produto" => $produto->id_produto
+                                ]);
+
+                            // Inclui no objeto
+                            $produto->download = $arquivo;
+                        }
+                        else
+                        {
+                            $this->api([
+                                "tipo" => true,
+                                "code" => 200,
+                                "mensagem" => "Produto foi inserido porem ocorreu um erro ao salvar arquivo.",
+                                "objeto" => $produto
+                            ]);
+
+                            exit;
+
+                        } // Erro ao salvar arquivo
+                    }
 
                     // Array de sucesso
                     $dados = [
@@ -747,6 +797,36 @@ class Produto extends Controller
                 $altera["descricao"] = $post["descricao"];
             }
 
+            // Verifica se vai alterar o arquivo
+            if($_FILES["arquivo"]["size"] > 0)
+            {
+                // Chama o objeto de upload
+                $objUpload = new File();
+
+                // Requisitos
+                $objUpload->setFile($_FILES["arquivo"]);
+                $objUpload->setStorange("./storage/produto/{$id}/");
+                $objUpload->setMaxSize(30 * MB);
+
+                // Realiza o upload
+                $arquivo = $objUpload->upload();
+
+                // Verifica
+                if($arquivo != false)
+                {
+                    // Informa da mudança
+                    $altera["download"] = $arquivo;
+                }
+                else
+                {
+                    // Barra o sistema
+                    $this->api(["mensagem" => "Ocorreu um erro ao alterar arquivo. Verifique se o arquivo pesa menos de 30MB"]);
+
+                    // mata o código
+                    exit;
+                }
+            }
+
             // ===================================================
             // ===================================================
 
@@ -756,6 +836,13 @@ class Produto extends Controller
                 // Altera e verifica
                 if($this->ObjModelProduto->update($altera, ["id_produto" => $id]) != false)
                 {
+                    // Verifica se alterou o arquivo e o produto ja possuia um
+                    if(!empty($produto->download) && !empty($altera["download"]))
+                    {
+                        // Deleta o arquivo anterior
+                        unlink("./storage/produto/{$id}/{$produto->download}");
+                    }
+
                     // Busca o produto alterado
                     $produtoAlterado = $this->ObjModelProduto
                         ->get(["id_produto" => $id])
@@ -771,7 +858,6 @@ class Produto extends Controller
                             "atual" => $produtoAlterado
                         ]
                     ];
-
                 }
                 else
                 {
