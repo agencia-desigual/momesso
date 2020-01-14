@@ -192,17 +192,6 @@ class Principal extends CI_controller
         $this->view("site/trabalhe-conosco",$dados);
     }
 
-  
-    public function noticiaDetalhes()
-    {
-        //Pegar o SEO da noticia, principalmento do SMO do face
-        $dados = $this->getSEO();
-
-        // Chama a view de noticias
-        $this->view("site/noticia-detalhes",$dados);
-    }
-
-
 
     /**
      * Método responsável por validar  e fazer o

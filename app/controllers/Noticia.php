@@ -96,12 +96,12 @@ class Noticia extends Controller
             $dados["noticia"] = $noticia;
 
             // Chama a view
-            $this->view("site/noticia-especifica", $dados);
+            $this->view("site/noticia-detalhes", $dados);
         }
         else
         {
             // Chama a view
-            $this->view("site/erro/404");
+            $this->view("site/error/404");
         } // Erro 404
 
     } // End >> fun::especifica()

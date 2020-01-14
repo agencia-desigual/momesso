@@ -19,7 +19,9 @@
                                 Aproveite o momento para revisar seus equipamentos e garantir seu tratamento de sementes com o programa Momesso Ready.
                             </p>
                             <div style="text-align: left">
-                                <button type="button" class="btn btn-banner">CONHEÇA</button>
+                                <a href="<?= BASE_URL; ?>produtos">
+                                    <button type="button" class="btn btn-banner">CONHEÇA</button>
+                                </a>
                             </div>
                         </div>
                     </div>
@@ -50,7 +52,9 @@
                 <p class="institucional-descricao">
                     A Momesso Indústria de Máquina é uma empresa com mais de 50 anos de mercado. Fundada em 18 de junho de 1962, sua atividade principal era a manutenção de máquinas de beneficiamento de algodão e óleo, junto com fabricação de tanques e braços de pulverizadores para agricultura sob encomenda, na região de Birigui, interior de São Paulo. Na década de 70, a Momesso incluiu em seu portfólio máquinas para colheita de crotalária ..
                 </p>
-                <button type="button" class="btn btn-conheca-institucional">CONHEÇA</button>
+                <a href="<?= BASE_URL; ?>empresa">
+                    <button type="button" class="btn btn-conheca-institucional">CONHEÇA</button>
+                </a>
             </div>
         </div>
     </div>
@@ -106,7 +110,9 @@
                             <h4>Agro</h4>
                             <hr style="border-bottom: 1px solid #f79b58;width: 60%;float: left;">
                             <p>Soluções completas para beneficiamento e tratamento de sementes.</p>
-                            <button type="button" class="btn btn-card-categoria-produto">VER PRODUTOS</button>
+                            <a href="<?= BASE_URL; ?>produtos/agro">
+                                <button type="button" class="btn btn-card-categoria-produto">VER PRODUTOS</button>
+                            </a>
                         </div>
                     </div>
                 </div>
@@ -116,7 +122,9 @@
                             <h4>Plástico</h4>
                             <hr style="border-bottom: 1px solid #f79b58;width: 60%;float: left;">
                             <p>Alta tecnologia em moinhos e transportadores pneumáticos.</p>
-                            <button type="button" class="btn btn-card-categoria-produto">VER PRODUTOS</button>
+                            <a href="<?= BASE_URL; ?>produtos/plastico">
+                                <button type="button" class="btn btn-card-categoria-produto">VER PRODUTOS</button>
+                            </a>
                         </div>
                     </div>
                 </div>
@@ -137,7 +145,7 @@
                                 <br>
                                 <br>
                                 <div class="text-center">
-                                    <a href="<?= BASE_URL; ?>produto/<?= $prod->id_produto; ?>/<?= $prod->slug; ?>"
+                                    <a href="<?= BASE_URL; ?>produtos/detalhe/<?= $prod->id_produto; ?>/<?= $prod->slug; ?>"
                                        class="btn btn-card-produto-home">CONHEÇA</a>
                                 </div>
                             </div>
