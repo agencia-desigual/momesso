@@ -136,19 +136,19 @@
                 <?php if(!empty($produtos)): ?>
                     <?php foreach ($produtos as $prod): ?>
                         <div class="col-md-4">
-                            <div class="card-produto-home">
-                                <h4><?= $prod->nome; ?></h4>
 
+
+                            <div class="card-produto">
+                                <div class="img-thumb-produto" style="background-image: url('<?= $prod->imagem ?>')"></div>
                                 <hr style="border-bottom: 2px solid #f47920;width: 100%;">
-
-                                <img src="<?= $prod->imagem; ?>">
-                                <br>
-                                <br>
+                                <h4><?= substr($prod->nome, 0, 48); ?></h4>
                                 <div class="text-center">
                                     <a href="<?= BASE_URL; ?>produtos/detalhe/<?= $prod->id_produto; ?>/<?= $prod->slug; ?>"
                                        class="btn btn-card-produto-home">CONHEÇA</a>
                                 </div>
                             </div>
+
+
                         </div>
                     <?php endforeach; ?>
                 <?php else: ?>
