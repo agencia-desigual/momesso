@@ -2,6 +2,7 @@ var Dados = {
     'url': "http://localhost/git/momesso/"
 }
 
+
 /*
 ==================================================
                 FORMULARIO CONTATO
@@ -57,6 +58,64 @@ $("#formContato").submit(function(e) {
     return false;
 });
 
+
+/*
+==================================================
+                FORMULARIO DOWNLOAD
+==================================================
+*/
+$("#usuarioDownload").submit(function(e) {
+
+    e.preventDefault(); // avoid to execute the actual submit of the form.
+
+    var form = $(this);
+
+    document.getElementById("btnEnviar").disabled = true;
+    document.getElementById("btnEnviar").innerHTML = "ENVIANDO, AGUARDE...";
+
+    $.ajax({
+        type: "POST",
+        dataType: 'json',
+        url: Dados.url + 'ajax-download',
+        data: form.serialize(), // serializes the form's elements.
+        success: function (data) {
+
+            if(data.tipo == true){
+                console.log(data);
+                Swal.fire({
+                    type: 'success',
+                    title: 'Sucesso',
+                    text: data.mensagem,
+                })
+                document.getElementById("usuarioDownload").reset();
+
+                location.href = data.objeto.link;
+
+            }else {
+                Swal.fire({
+                    type: 'error',
+                    title: 'Erro...',
+                    text: data.mensagem,
+                })
+            }
+            document.getElementById("btnEnviar").disabled = false;
+            document.getElementById("btnEnviar").innerHTML = "ENVIAR";
+
+        },
+        error: function (data) {
+            Swal.fire({
+                type: 'error',
+                title: 'Erro...',
+                text: data.mensagem,
+            })
+            document.getElementById("btnEnviar").disabled = false;
+            document.getElementById("btnEnviar").innerHTML = "ENVIAR";
+        }
+
+    });
+
+    return false;
+});
 
 function menu(tipo)
 {

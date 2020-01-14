@@ -20,7 +20,7 @@
     </div>
     <!-- FIM BREADCUMP -->
 
-    <!-- NOTICIAS -->
+    <!-- CONTEUDO -->
     <div class="">
         <div class="container">
 
@@ -74,12 +74,17 @@
                             </div>
                             <hr style="border-top: 2px solid #ccc;">
 
-
                             <!-- DOWNLOAD / ORÇAMENTO -->
                             <div class="row">
                                 <?php if(empty($produto->download)): ?>
                                 <div class="col-md-6 text-center">
-                                    <button type="button" class="btn btn-download-produto" data-toggle="modal" data-target="#validarDownload">DOWNLOAD</button>
+                                    <?php if(isset($_SESSION['DOWNLOAD'])): ?>
+                                    <a href="<?= BASE_STORANGE ?>produto/<?= $produto->id_produto ?>/<?= $produto->download ?>" download>
+                                        <button type="button" class="btn btn-download-produto">DOWNLOAD</button>
+                                    </a>
+                                    <?php else: ?>
+                                        <button type="button" class="btn btn-download-produto" data-toggle="modal" data-target="#validarDownload">DOWNLOAD</button>
+                                    <?php endif; ?>
                                 </div>
                                 <div class="col-md-6 text-center">
                                     <a href="<?= BASE_URL; ?>contato">
@@ -120,7 +125,7 @@
 
         </div>
     </div>
-    <!-- FIM NOTICIAS -->
+    <!-- FIM CONTEUDO -->
 
     <!-- Modal -->
     <div class="modal fade" id="validarDownload" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
@@ -134,11 +139,12 @@
                 </div>
                 <div class="modal-body">
 
-                    <form>
+                    <form id="usuarioDownload">
 
                         <div class="form-group">
                             <label>NOME</label>
                             <input name="nome" type="text" class="form-control">
+                            <input name="id_produto" type="hidden" value="<?= $produto->id_produto ?>" class="form-control">
                         </div>
                         <div class="form-group">
                             <label>EMPRESA / FAZENDA</label>
@@ -148,7 +154,7 @@
                             <label>EMAIL</label>
                             <input name="email" type="email" class="form-control">
                         </div>
-                        <button type="submit" class="btn btn-download-form">ENVIAR</button>
+                        <button id="btnEnviar" type="submit" class="btn btn-download-form">ENVIAR</button>
 
                     </form>
 

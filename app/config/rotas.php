@@ -31,6 +31,7 @@ $Rotas->on("GET","produtos/{p}","Produto::exibirTodos");
  * FUNCOES AJAX
  *************************/
 $Rotas->on("POST","ajax-contato","Principal::ajaxContato");
+$Rotas->on("POST","ajax-download","Produto::jx_insertDownload");
 
 
 /*************************
