@@ -58,6 +58,65 @@ $("#formContato").submit(function(e) {
     return false;
 });
 
+/*
+==================================================
+         FORMULARIO TRABALHE CONOSCO
+==================================================
+*/
+$("#formTrabalheConosco").submit(function(e) {
+
+    e.preventDefault(); // avoid to execute the actual submit of the form.
+
+    var form = new FormData(this);
+
+    document.getElementById("btnContato").disabled = true;
+    document.getElementById("btnContato").innerHTML = "ENVIANDO, AGUARDE...";
+
+    $.ajax({
+        type: "POST",
+        dataType: 'json',
+        url: Dados.url + 'ajax-trabalhe-conosco',
+        data: form, // serializes the form's elements.
+        mimeType: "multipart/form-data",
+        contentType: false,
+        cache: false,
+        processData: false,
+        success: function (data) {
+
+            if(data.tipo == true){
+                console.log(data);
+                Swal.fire({
+                    type: 'success',
+                    title: 'Sucesso',
+                    text: data.mensagem,
+                })
+                document.getElementById("formTrabalheConosco").reset();
+            }else {
+                Swal.fire({
+                    type: 'error',
+                    title: 'Erro...',
+                    text: data.mensagem,
+                })
+            }
+            document.getElementById("btnContato").disabled = false;
+            document.getElementById("btnContato").innerHTML = "ENVIAR";
+
+        },
+        error: function (data) {
+            Swal.fire({
+                type: 'error',
+                title: 'Erro...',
+                text: data.mensagem,
+            })
+            document.getElementById("btnContato").disabled = false;
+            document.getElementById("btnContato").innerHTML = "ENVIAR";
+        }
+
+    });
+
+    return false;
+});
+
 
 /*
 ==================================================

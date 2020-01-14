@@ -38,17 +38,17 @@
                     <div style="padding: 50px 30px;" class="container">
 
                         <!-- FORMULÁRIO -->
-                        <form>
+                        <form id="formTrabalheConosco">
                             <div class="form-group">
-                                <input type="text" class="form-control" placeholder="Nome:">
+                                <input required name="nome" maxlength="150" type="text" class="form-control" placeholder="Nome:">
                             </div>
                             <div class="form-group">
-                                <input type="email" class="form-control" placeholder="Email:">
+                                <input required name="email" maxlength="150" type="email" class="form-control" placeholder="Email:">
                             </div>
                             <div class="form-group">
-                                <input type="file" class="dropify">
+                                <input required name="arquivo" type="file" class="dropify">
                             </div>
-                            <button type="submit" class="btn btn-form-contato">ENVIAR</button>
+                            <button id="btnContato" type="submit" class="btn btn-form-contato">ENVIAR</button>
                         </form>
                         <!-- FIM FORMULÁRIO -->
 

@@ -27,7 +27,7 @@
             <div class="row margin-conteudo">
 
                 <!-- CATEGORIAS -->
-                <div class="col-md-3">
+                <div class="col-md-4">
 
                     <?php foreach ($categorias as $cat): ?>
                         <!-- CATEGORIA PAI -->
@@ -54,7 +54,7 @@
                 <!-- FIM CATEGORIAS -->
 
                 <!-- PRODUTOS -->
-                <div class="col-md-9">
+                <div class="col-md-8">
 
                     <div class="borda-left">
                     <div class="container">

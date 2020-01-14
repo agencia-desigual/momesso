@@ -27,7 +27,7 @@
             <div class="row margin-conteudo">
 
                 <!-- CATEGORIAS -->
-                <div class="col-md-3">
+                <div class="col-md-4">
                     <!-- CATEGORIA PAI -->
                     <div class="thumb-categoria-produto"
                          style="background-image: url('<?= BASE_STORANGE ?>categoria/<?= $categorias->imagem; ?>');">
@@ -51,7 +51,7 @@
                 <!-- FIM CATEGORIAS -->
 
                 <!-- PRODUTOS -->
-                <div class="col-md-9">
+                <div class="col-md-8">
 
                     <div class="borda-left">
                     <div class="container">
