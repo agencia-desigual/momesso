@@ -76,7 +76,7 @@
 
                             <!-- DOWNLOAD / ORÇAMENTO -->
                             <div class="row">
-                                <?php if(empty($produto->download)): ?>
+                                <?php if(!empty($produto->download)): ?>
                                 <div class="col-md-6 text-center">
                                     <?php if(isset($_SESSION['DOWNLOAD'])): ?>
                                     <a href="<?= BASE_STORANGE ?>produto/<?= $produto->id_produto ?>/<?= $produto->download ?>" download>

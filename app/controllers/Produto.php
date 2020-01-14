@@ -305,6 +305,8 @@ class Produto extends Controller
 
 
 
+
+
     /**************************************************
      **                MÉTODO PAINEL
      **************************************************/
@@ -889,5 +891,72 @@ class Produto extends Controller
         $this->api($dados);
 
     } // End >> fun::jx_update()
+
+
+    /**
+     * Método responsável por receber os dados post
+     * de uma solicitação de download e salvar no
+     * banco de dados.
+     * -------------------------------------------------------
+     * @method POST
+     * @url ajax-download
+     */
+    public function jx_insertDownload()
+    {
+        // Dados
+        $dados = null;
+        $salva = null;
+        $post = null;
+
+        // Recupera os dados post
+        $post = $_POST;
+
+        // Verifica se informou todos os campos
+        if(!empty($post["nome"]) &&
+            !empty($post["empresa"]) &&
+            !empty($post["email"]))
+        {
+            // Limpa os dados
+            $salva = [
+                "nome" => strtolower($post["nome"]),
+                "empresa" => strtolower($post["empresa"]),
+                "email" => strtolower($post["email"])
+            ];
+
+            // Salva
+            $download = $this->ObjModelDownload->insert($salva);
+
+            // Verifica se salvou
+            if($salva != false)
+            {
+                // Busca o produto
+                $produto = $this->ObjModelProduto
+                    ->get(["id_produto" => $post["id_produto"]])
+                    ->fetch(\PDO::FETCH_OBJ);
+
+                // Retorno
+                $dados = [
+                    "tipo" => true,
+                    "code" => 200,
+                    "mensagem" => "Download Liberado.",
+                    "objeto" => [
+                        "link" => BASE_STORANGE . "produto/" . $produto->id_produto . "/" . $produto->download
+                    ]
+                ];
+            }
+            else
+            {
+                $dados = ["mensagem" => "Ocorreu um erro ao salvar solicitação de download"];
+            } // Error - Ocorreu um erro ao salvar
+        }
+        else
+        {
+            $dados = ["mensagem" => "Todos os campos são obrigatórios."];
+        } // Error - Dados n informados
+
+        // Retorno
+        $this->api($dados);
+
+    } // End >> fun::jx_insertDownload()
 
 } // End >> Class::Produto
