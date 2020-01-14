@@ -89,7 +89,15 @@ $("#usuarioDownload").submit(function(e) {
                 })
                 document.getElementById("usuarioDownload").reset();
 
-                location.href = data.objeto.link;
+
+                setTimeout(() => {
+
+                    window.open(
+                        data.objeto.link,
+                        '_blank' // <- This is what makes it open in a new window.
+                    );
+
+                }, 2000);
 
             }else {
                 Swal.fire({

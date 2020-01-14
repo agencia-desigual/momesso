@@ -934,6 +934,9 @@ class Produto extends Controller
                     ->get(["id_produto" => $post["id_produto"]])
                     ->fetch(\PDO::FETCH_OBJ);
 
+                // ADD a session
+                $_SESSION["DOWNLOAD"] = true;
+
                 // Retorno
                 $dados = [
                     "tipo" => true,
