@@ -77,7 +77,7 @@
 
                             <!-- DOWNLOAD / ORÇAMENTO -->
                             <div class="row">
-                                <?php if(empty($produto->download)): ?>
+                                <?php if(!empty($produto->download)): ?>
                                 <div class="col-md-6 text-center">
                                     <button type="button" class="btn btn-download-produto" data-toggle="modal" data-target="#validarDownload">DOWNLOAD</button>
                                 </div>
