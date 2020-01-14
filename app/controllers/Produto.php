@@ -6,6 +6,7 @@ namespace Controller;
 // Importação
 use Helper\Seguranca;
 use Model\Imagem;
+use Model\Download;
 use Sistema\Controller;
 
 // Classe
@@ -16,6 +17,7 @@ class Produto extends Controller
     private $ObjModelCategoria;
     private $ObjModelProduto;
     private $ObjModelImagem;
+    private $ObjModelDownload;
 
     // Metodo Construtor
     public function __construct()
@@ -28,6 +30,7 @@ class Produto extends Controller
         $this->ObjModelCategoria = new \Model\Categoria();
         $this->ObjModelProduto = new \Model\Produto();
         $this->ObjModelImagem = new Imagem();
+        $this->ObjModelDownload = new Download();
 
     } // End >> fun::__construct()
 

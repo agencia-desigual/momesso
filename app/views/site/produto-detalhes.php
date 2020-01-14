@@ -73,12 +73,31 @@
 
                             </div>
                             <hr style="border-top: 2px solid #ccc;">
-                            <div class="text-center">
-                                <a href="<?= BASE_URL; ?>contato">
-                                    <button type="button" class="btn btn-solicitar-orcamento">SOLICITE UM ORÇAMENTO</button>
-                                </a>
-                                <p style="font-size: 13px; letter-spacing: 2px">SEM COMPROMISSO</p>
+
+
+                            <!-- DOWNLOAD / ORÇAMENTO -->
+                            <div class="row">
+                                <?php if(empty($produto->download)): ?>
+                                <div class="col-md-6 text-center">
+                                    <button type="button" class="btn btn-download-produto" data-toggle="modal" data-target="#validarDownload">DOWNLOAD</button>
+                                </div>
+                                <div class="col-md-6 text-center">
+                                    <a href="<?= BASE_URL; ?>contato">
+                                        <button type="button" class="btn btn-solicitar-orcamento">SOLICITE UM ORÇAMENTO</button>
+                                    </a>
+                                    <p style="font-size: 13px; letter-spacing: 2px">SEM COMPROMISSO</p>
+                                </div>
+                                <?php else: ?>
+                                <div class="col-md-12 text-center">
+                                    <a href="<?= BASE_URL; ?>contato">
+                                        <button type="button" class="btn btn-solicitar-orcamento">SOLICITE UM ORÇAMENTO</button>
+                                    </a>
+                                    <p style="font-size: 13px; letter-spacing: 2px">SEM COMPROMISSO</p>
+                                </div>
+                                <?php endif; ?>
                             </div>
+                            <!-- FIM DOWNLOAD / ORÇAMENTO -->
+
                             <br>
                             <br>
                             <div class="row produtos">
@@ -102,5 +121,41 @@
         </div>
     </div>
     <!-- FIM NOTICIAS -->
+
+    <!-- Modal -->
+    <div class="modal fade" id="validarDownload" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalCenterTitle">Liberar Download</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+
+                    <form>
+
+                        <div class="form-group">
+                            <label>NOME</label>
+                            <input name="nome" type="text" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <label>EMPRESA / FAZENDA</label>
+                            <input name="empresa" type="text" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <label>EMAIL</label>
+                            <input name="email" type="email" class="form-control">
+                        </div>
+                        <button type="submit" class="btn btn-download-form">ENVIAR</button>
+
+                    </form>
+
+                </div>
+
+            </div>
+        </div>
+    </div>
 
 <?php $this->view('site/includes/footer'); ?>

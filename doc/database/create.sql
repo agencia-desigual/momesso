@@ -24,10 +24,19 @@ CREATE TABLE produto(
   nome VARCHAR(100) NOT NULL,
   descricao TEXT NOT NULL,
   slug VARCHAR(150) NOT NULL,
+  download VARCHAR (150) NULL DEFAULT NULL,
   PRIMARY KEY (id_produto),
   FOREIGN KEY (id_categoria) REFERENCES categoria(id_categoria)
 );
 
+CREATE TABLE download(
+  id_download INT NOT NULL AUTO_INCREMENT,
+  nome VARCHAR(150) NOT NULL,
+  email VARCHAR(150) NOT NULL UNIQUE,
+  empresa VARCHAR(150) NOT NULL,
+  data TIMESTAMP NOT NULL,
+  PRIMARY KEY (id_download)
+);
 
 CREATE TABLE imagem(
   id_imagem INT NOT NULL AUTO_INCREMENT,
