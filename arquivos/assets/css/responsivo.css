@@ -18,6 +18,14 @@
 
     .caminho-breadcump { padding-bottom: 25px; }
 
+    .logo-rodape { text-align: center !important; margin-bottom: 15px; }
+
+    .endereco-rodape { text-align: center !important; }
+
+    .rede-social-rodape{ display: flow-root; margin-top: 15px}
+
+    .rede-social-rodape-yt { display: flow-root; margin-top: 10px; margin-bottom: -50px; }
+
 }
 
 @media only screen and (max-width: 430px) {
