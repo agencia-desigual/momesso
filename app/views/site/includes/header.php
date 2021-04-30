@@ -87,6 +87,10 @@
     <title><?= $seo['title'] ?></title>
 
 
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="<?= BASE_URL; ?>arquivos/assets/img/favicon.png" type="image/png" />
+
+
     <!-- Global site tag (gtag.js) - Google Analytics -->
 	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-169605571-1"></script>
 	<script>

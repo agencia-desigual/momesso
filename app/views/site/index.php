@@ -1,36 +1,60 @@
 <?php $this->view('site/includes/header'); ?>
 
+    <style>
+        .banner-principal .selo
+        {
+            width: auto;
+            display: block;
+            padding-bottom: 20px;
+            max-width: 80%;
+        }
+
+        .sub-titulo-banner-principal{font-size: 1.4em;}
+
+        .txt
+        {
+            padding-left: 50px;
+            padding-top: 20px;
+        }
+
+        @media (max-width: 600px) {
+            .banner-principal{background-position-x: -50px;}
+            .banner-principal .aux
+            {
+                width: 240px;
+                margin-left: calc(50% - 120px);
+            }
+
+            .txt{padding: 0px !important;}
+        }
+    </style>
+
+
     <!-- BANNER PRINCIPAL -->
-    <div class="banner-principal" style="background-image: url('<?= BASE_URL ?>arquivos/assets/img/banner-home.png');">
+    <div class="banner-principal" style="background-image: url('<?= BASE_URL ?>arquivos/assets/img/banner.png');">
 
         <div class="container">
             <div class="row">
 
                 <div class="col-md-6">
                     <div class="centraliza-itens altura-80">
-                        <div>
+                        <div class="aux">
+                            <img class="selo" src="<?= BASE_URL; ?>arquivos/assets/img/selo-farm.png">
+
                             <p class="titulo-banner-principal">
-                                Hora de semear boas<br>
-                                colheitas para <?php echo date("Y"); ?>.<br>
-                                Garantia de produtividade,<br>
-                                vigor e germinação<br>
+                                Do <b style="color: #f47920;">ON FARM</b> <br>
+                                ao <b style="color: #f47920;">INDUSTRIAL</b>
                             </p>
                             <p class="sub-titulo-banner-principal">
-                                Aproveite o momento para revisar seus equipamentos e garantir seu tratamento de sementes com o programa Momesso Ready.
+                                Há 60 anos levando <br>
+                                inovação e tecnologia <br>
+                                para seu plantio.
                             </p>
                             <div style="text-align: left">
                                 <a href="<?= BASE_URL; ?>produtos">
                                     <button type="button" class="btn btn-banner">CONHEÇA</button>
                                 </a>
                             </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-md-6">
-                    <div class="centraliza-itens altura-80">
-                        <div>
-                            <img class="remover-img-767" width="300px" src="<?= BASE_URL; ?>arquivos/assets/img/momesso_ready_logo.png">
                         </div>
                     </div>
                 </div>
@@ -43,18 +67,20 @@
     <!-- INSTITUCIONAL -->
     <div class="container">
         <div style="margin-top: 50px; margin-bottom: 50px;" class="row">
-            <div class="col-md-6" style="background-image: url('<?= BASE_URL; ?>arquivos/assets/img/img-contant.png'); height: 500px;background-position: center;background-repeat: no-repeat;background-size: contain;">
+            <div class="col-md-6" style="background-image: url('<?= BASE_URL; ?>arquivos/assets/img/img-home.png'); height: 500px;background-position: center;background-repeat: no-repeat;background-size: contain;">
 
             </div>
             <div class="col-md-6">
-                <p class="titulo-institucional">Há mais de 50 anos contribuindo com a evolução da nossa agricultura.</p>
-                <br>
-                <p class="institucional-descricao">
-                    A Momesso Indústria de Máquina é uma empresa com mais de 50 anos de mercado. Fundada em 18 de junho de 1962, sua atividade principal era a manutenção de máquinas de beneficiamento de algodão e óleo, junto com fabricação de tanques e braços de pulverizadores para agricultura sob encomenda, na região de Birigui, interior de São Paulo. Na década de 70, a Momesso incluiu em seu portfólio máquinas para colheita de crotalária ..
-                </p>
-                <a href="<?= BASE_URL; ?>empresa">
-                    <button type="button" class="btn btn-conheca-institucional">CONHEÇA</button>
-                </a>
+                <div class="txt">
+                    <p class="titulo-institucional">Há mais de 50 anos contribuindo com a evolução da nossa agricultura.</p>
+                    <br>
+                    <p class="institucional-descricao">
+                        A Momesso Indústria de Máquina é uma empresa com mais de 50 anos de mercado. Fundada em 18 de junho de 1962, sua atividade principal era a manutenção de máquinas de beneficiamento de algodão e óleo, junto com fabricação de tanques e braços de pulverizadores para agricultura sob encomenda, na região de Birigui, interior de São Paulo. Na década de 70, a Momesso incluiu em seu portfólio máquinas para colheita de crotalária ..
+                    </p>
+                    <a href="<?= BASE_URL; ?>empresa">
+                        <button type="button" class="btn btn-conheca-institucional">CONHEÇA</button>
+                    </a>
+                </div>
             </div>
         </div>
     </div>

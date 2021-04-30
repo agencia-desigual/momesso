@@ -45,7 +45,7 @@
                 </p>
             </div>
             <div class="col-md-6 text-center">
-                <img style="width: 100%; padding: 150px 0px" src="<?= BASE_URL; ?>arquivos/assets/img/a-empresa.png">
+                <img style="width: 100%; padding: 150px 0px" src="<?= BASE_URL; ?>arquivos/assets/img/img-empresa.png">
             </div>
 
         </div>

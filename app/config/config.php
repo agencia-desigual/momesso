@@ -1,11 +1,11 @@
 <?php
 
-// defined('BASE_URL') OR define('BASE_URL', 'https://www.momesso.ind.br/');
-defined('BASE_URL') OR define('BASE_URL', 'http://localhost/git/momesso/');
+defined('BASE_URL') OR define('BASE_URL', 'https://momesso.ind.br/');
+// defined('BASE_URL') OR define('BASE_URL', 'http://localhost/git/momesso/');
 
 // URL base do storange
-// defined('BASE_STORANGE') OR define('BASE_STORANGE', 'https://www.momesso.ind.br/storage/');
-defined('BASE_STORANGE') OR define('BASE_STORANGE', 'http://localhost/git/momesso/storage/');
+defined('BASE_STORANGE') OR define('BASE_STORANGE', 'https://momesso.ind.br/storage/');
+// defined('BASE_STORANGE') OR define('BASE_STORANGE', 'http://localhost/git/momesso/storage/');
 
 // Session | Caso deseje que a session seja iniciada em todas as páginas
 // Apenas mude a constante para true.
