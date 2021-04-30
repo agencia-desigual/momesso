@@ -47,7 +47,7 @@
 
             </div>
             <div class="col-md-6">
-                <p class="titulo-institucional">Há mais de 50 anos <br> contribuindo com a <br> nossa evolução da nossa <br> agricultura.</p>
+                <p class="titulo-institucional">Há mais de 50 anos contribuindo com a evolução da nossa agricultura.</p>
                 <br>
                 <p class="institucional-descricao">
                     A Momesso Indústria de Máquina é uma empresa com mais de 50 anos de mercado. Fundada em 18 de junho de 1962, sua atividade principal era a manutenção de máquinas de beneficiamento de algodão e óleo, junto com fabricação de tanques e braços de pulverizadores para agricultura sob encomenda, na região de Birigui, interior de São Paulo. Na década de 70, a Momesso incluiu em seu portfólio máquinas para colheita de crotalária ..

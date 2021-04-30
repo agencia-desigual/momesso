@@ -33,46 +33,66 @@
 
                 <div class="card-form-contato">
 
-                    <div style="padding: 50px 30px;" class="container">
+<div style="padding: 50px 30px;" class="container">
 
-                        <!-- TIPO -->
-                        <div class="row">
-                            <div id="tipoFisico" class="col-md-6 text-center tipo-form tipo-form-ativo">PESSOA FÍSICA<hr id="hrFisico" class="hr-tipo-form hr-tipo-form-ativo"></div>
-                            <div id="tipoJuridico" class="col-md-6 text-center tipo-form">PESSOA JURÍDICA<hr id="hrJurudico" class="hr-tipo-form"></div>
-                        </div>
-                        <!-- FIM TIPO -->
+                        <!--  ----------------------------------------------------------------------  -->
+                        <!--  NOTA: Adicione o seguinte elemento <META> à sua página <HEAD>.  Se      -->
+                        <!--  necessário, modifique o parâmetro charset para especificar o conjunto   -->
+                        <!--  de caracteres de sua página HTML.                                       -->
+                        <!--  ----------------------------------------------------------------------  -->
 
-                        <!-- FORMULÁRIO -->
-                        <form id="formContato">
-                            <div class="form-group">
-                                <input name="nome" maxlength="100" type="text" class="form-control" placeholder="Nome:" required>
-                            </div>
-                            <div class="form-group">
-                                <input name="email" maxlength="200" type="email" class="form-control" placeholder="Email:" required>
-                            </div>
-                            <div id="tipoCPF" class="form-group">
-                                <input name="cpf" type="text" class="form-control cpf" placeholder="CPF:">
-                            </div>
-                            <div id="tipoCNPJ" style="display: none" class="form-group">
-                                <input name="cnpj" type="text" class="form-control cnpj" placeholder="CNPJ:">
-                            </div>
-                            <div class="form-group">
-                                <input name="telefone" type="tel" class="form-control mascara-tel-cel" placeholder="Telefone / Celular:" required>
-                            </div>
-                            <div class="form-row">
-                                <div class="form-group col-md-8">
-                                    <input name="cidade" type="text" class="form-control" placeholder="Cidade:" required>
-                                </div>
-                                <div class="form-group col-md-4">
-                                    <input style="text-transform: uppercase" name="estado" maxlength="2" type="text" class="form-control" placeholder="UF:" required>
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <textarea name="mensagem" class="form-control" rows="6" placeholder="Mensagem:" required></textarea>
-                            </div>
-                            <button id="btnContato" type="submit" class="btn btn-form-contato">ENVIAR</button>
+                        <META HTTP-EQUIV="Content-type" CONTENT="text/html; charset=UTF-8">
+
+                        <!--  ----------------------------------------------------------------------  -->
+                        <!--  NOTA: Adicione o elemento <FORM> a seguir à sua página.                 -->
+                        <!--  ----------------------------------------------------------------------  -->
+
+                        <form action="https://webto.salesforce.com/servlet/servlet.WebToLead?encoding=UTF-8" method="POST">
+
+                            <input type=hidden name="oid" value="00D15000000NBUe">
+                            <input type=hidden name="retURL" value="http://www.momesso.ind.br/">
+
+                            <!--  ----------------------------------------------------------------------  -->
+                            <!--  NOTA: Estes campos são elementos de depuração opcionais. Remova o       -->
+                            <!--  comentário dessas linhas se quiser testar no modo de depuração.         -->
+                            <!--  <input type="hidden" name="debug" value=1>                              -->
+                            <!--  <input type="hidden" name="debugEmail"                                  -->
+                            <!--  value="momesso-sf@beecloud.com.br">                                     -->
+                            <!--  ----------------------------------------------------------------------  -->
+
+                            <input class="form-control" placeholder="Nome"  id="first_name" maxlength="80" name="first_name" size="20" type="text" /><br>
+
+                            <input class="form-control" placeholder="Sobrenome"  id="last_name" maxlength="80" name="last_name" size="20" type="text" /><br>
+
+                            <input class="form-control" placeholder="Email" id="email" maxlength="80" name="email" size="20" type="text" /><br>
+
+                            <input class="form-control" placeholder="CPF" id="00N1500000FRcU2" maxlength="25" name="00N1500000FRcU2" size="20" type="text" /><br>
+
+                            <input class="form-control" placeholder="CNPJ" id="00N1500000FRySK" maxlength="25" name="00N1500000FRySK" size="20" type="text" /><br>
+
+                            <input class="form-control" placeholder="Telefone" id="phone" maxlength="40" name="phone" size="20" type="text" /><br>
+
+                            <input class="form-control" placeholder="Celular" id="mobile" maxlength="40" name="mobile" size="20" type="text" /><br>
+
+                            <input class="form-control" placeholder="Cidade" id="city" maxlength="40" name="city" size="20" type="text" /><br>
+
+                            <input class="form-control" placeholder="UF" id="state" maxlength="20" name="state" size="20" type="text" /><br>
+
+                            <input class="form-control" placeholder="Produto" id="00N3m00000QYiw1" maxlength="255" name="00N3m00000QYiw1" size="20" type="text" value="<?= (!empty($produto)) ? $produto->nome : '' ?>" /><br>
+
+                            <textarea class="form-control" placeholder="Mensagem" id="00N1500000FRcTd" name="00N1500000FRcTd" rows="4" type="text" wrap="soft"></textarea><br>
+
+                            <!-- Origem do lead -->
+                            <input id="lead_source" type=hidden name="lead_source" value="Email">
+
+                            <!-- Tipo de lead -->
+                            <input  id="00N1500000GBQZH" type=hidden name="00N1500000GBQZH" value="Plásticos">
+
+                            <input type="submit" class="btn btn-form-contato" name="submit">
+
                         </form>
-                        <!-- FIM FORMULÁRIO -->
+
+
 
                     </div>
 
@@ -99,7 +119,7 @@
                 <br>
 
                 <img src="<?= BASE_URL; ?>arquivos/assets/img/icone-endereco.png"><p>Endereço</p>
-                <h4>Av. João Cernack, 999, Birigui/SP</h4>
+                <h4>Av. João Cernach, 999, Birigui/SP</h4>
                 <h4>CEP: 16200-054</h4>
 
             </div>

@@ -53,7 +53,7 @@
                 <!-- PRODUTOS -->
                 <div class="col-md-8">
 
-                    <div class="borda-left">
+                    <div id="produtos" class="borda-left">
                     <div class="container">
                         <div class="row produtos">
 

@@ -2,7 +2,7 @@ import Session from "./main/Session.js"
 
 // Dados importantes
 var Dados = {
-    "url": "http://localhost/git/momesso/",
+    "url": "http://www.momesso.ind.br/",
     "table": $('.datatable').DataTable()
 }
 

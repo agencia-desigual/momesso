@@ -9,7 +9,7 @@
  *
  * Autor: igorcacerez
  * Date: 26/03/2019
- * 
+ *
  */
 
 namespace Sistema;
@@ -144,11 +144,8 @@ class Controller
         $dados = [
             "seo" => [
                 "title" => "Momesso | Indústria de Máquinas",
-                "description" => "A Momesso Indústria de Máquina é uma empresa com mais de 50 anos de mercado. 
-                                  Fundada em 18 de junho de 1962, sua atividade principal era a manutenção de máquinas 
-                                  de beneficiamento de algodão e óleo, junto com fabricação de tanques e braços de 
-                                  pulverizadores para agricultura sob encomenda, na região de Birigui, interior de São Paulo.",
-                "keywords" => "maquinas industriais, maquinas momesso, maquinas agricolas, Maquinário agrícola, Máquinas e Implementos Agrícolas",
+                "description" => "A Momesso Indústria de Máquinas agrícolas atende do on farm ao industrial. Expert no desenvolvimento de tecnologias para tratamento de sementes com máquinas de laboratório, batelada e fluxo contínuo.",
+                "keywords" => "maquinas industriais, maquinas agrícolas, maquinário agrícola, Implementos agrícolas, indústria de maquinas agrícolas, momesso maquinas, momesso indústria de maquinas agrícolas, batelada, fluxo contínuo, Tratamento de semente, Tratamento de semente no Brasil, Sementes, Semente, Soja, Milho, Amendoim, Beneficiamento de sementes, Syngenta, Bayer, Basf, Cimbria, Melhor tratamento de semente, Tratamento de sementes de qualidade, Tratamento semente de soja, tratamento semente de milho, Tratamento semente de amendoim, On farm, Industrial, Máquinas On farm, Máquinas industrial, Máquinas de laboratório, Tratamento on farm, Tratamento industrial, Tratamento semi industrial, Agricultura, Campo, Agronegócio, safra, Alta performance no tratamento de sementes, tecnologia no tratamento de sementes, sementeiras, cooperativas de sementes, cobertura de sementes, suporte técnico sementeiras, suporte técnico tratamento de sementes industrial, treinamento para tratamento de sementes",
                 "distribution" => "global",
                 "revisit-after" => "2 Days",
                 "robots" => "ALL",
@@ -158,8 +155,8 @@ class Controller
                 "url" => BASE_URL,
                 "title" => "Momesso | Indústria de Máquinas",
                 "site_name" => SITE_NOME,
-                "description" => "A Momesso Indústria de Máquina é uma empresa com mais de 50 anos de mercado. Fundada em 18 de junho de 1962, sua atividade principal era a manutenção de máquinas de beneficiamento de algodão e óleo, junto com fabricação de tanques e braços de pulverizadores para agricultura sob encomenda, na região de Birigui, interior de São Paulo.",
-                "image" => BASE_STORANGE.'assets/img/thumb-face.png',
+                "description" => "A Momesso Indústria de Máquinas agrícolas atende do on farm ao industrial. Expert no desenvolvimento de tecnologias para tratamento de sementes com máquinas de laboratório, batelada e fluxo contínuo.",
+                "image" => BASE_URL.'arquivos/assets/img/thumb-face.png',
                 "image_type" => "image/png",
                 "image_width" => "800",
                 "image_height" => "600"

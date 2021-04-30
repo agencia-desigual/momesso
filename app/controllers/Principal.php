@@ -129,6 +129,22 @@ class Principal extends CI_controller
     {
         $dados = $this->getSEO();
 
+        // Verifica se teve produto 
+        if(!empty($_GET["produto"]))
+        {
+          // Instancia
+          $ObjProduto = new \Model\Produto();
+
+          // Busca 
+          $produto = $ObjProduto->get(["id_produto" => $_GET["produto"]])->fetch(\PDO::FETCH_OBJ);
+
+          // Verifica se encontrou 
+          if(!empty($produto))
+          {
+            $dados["produto"] = $produto;
+          }
+        }
+
         // Chama a view de contato
         $this->view("site/contato",$dados);
     }
@@ -221,7 +237,7 @@ class Principal extends CI_controller
                 $tipo = "PESSOA JURÍDICA";
 
                 //Setando a mensagem a ser enviada
-                $mensagemEmail = "Olá você está recebendo uma mesnsagem do formulário de <b>Contato</b> abaixo estão os detalhes:<br>".
+                $mensagemEmail = "Olá você está recebendo uma mensagem do formulário de <b>Contato</b> abaixo estão os detalhes:<br>".
                     "<br>
                               <b>TIPO PESSOA: </b>".$tipo."<br>
                               <b>NOME: </b>".$_POST['nome']."<br>
@@ -230,6 +246,7 @@ class Principal extends CI_controller
                               <b>TELEFONE: </b>".$_POST['telefone']."<br>
                               <b>CIDADE: </b>".$_POST['cidade']."<br>
                               <b>ESTADO: </b>".strtoupper($_POST['estado'])."<br>
+                              <b>PRODUTO: </b>".$_POST['produto']."<br>
                               <b>MENSAGEM: </b>".$_POST['mensagem']."<br>
                               <br><br><p style='font-style: italic'>Página: ".BASE_URL."contato</p><p style='font-style: italic'>Enviada em ".$data."  ás ".$hora."</p>";
             }
@@ -239,7 +256,7 @@ class Principal extends CI_controller
                 $tipo = "PESSOA FÍSICA";
 
                 //Setando a mensagem a ser enviada
-                $mensagemEmail = "Olá você está recebendo uma mesnsagem do formulário de <b>Contato</b> abaixo estão os detalhes:<br>".
+                $mensagemEmail = "Olá você está recebendo uma mensagem do formulário de <b>Contato</b> abaixo estão os detalhes:<br>".
                     "<br>
                               <b>TIPO PESSOA: </b>".$tipo."<br>
                               <b>NOME: </b>".$_POST['nome']."<br>
@@ -248,6 +265,7 @@ class Principal extends CI_controller
                               <b>TELEFONE: </b>".$_POST['telefone']."<br>
                               <b>CIDADE: </b>".$_POST['cidade']."<br>
                               <b>ESTADO: </b>".strtoupper($_POST['estado'])."<br>
+                              <b>PRODUTO: </b>".$_POST['produto']."<br>
                               <b>MENSAGEM: </b>".$_POST['mensagem']."<br>
                               <br><br><p style='font-style: italic'>Página: ".BASE_URL."contato</p><p style='font-style: italic'>Enviada em ".$data."  ás ".$hora."</p>";
             }
@@ -271,7 +289,7 @@ class Principal extends CI_controller
             ]);
 
             /*CONFIGURAÇÕES DESTINATARIOS*/
-            $this->email->setDestinatarios([['edilson@desigual.com.br','Contato - MOMESSO®']]);
+            $this->email->setDestinatarios([['sitemomesso@momesso.ind.br','Contato - MOMESSO®']]);
             $this->email->setMensagem($mensagemEmail);
 
             if($this->email->enviaEmail()){
@@ -365,7 +383,7 @@ class Principal extends CI_controller
                             ]);
 
                             /*CONFIGURAÇÕES DESTINATARIOS*/
-                            $this->email->setDestinatarios([['edilson@desigual.com.br', 'Contato - MOMESSO®']]);
+                            $this->email->setDestinatarios([['rh@momesso.ind.br', 'Currículo - MOMESSO®']]);
                             $this->email->setMensagem($mensagemEmail);
 
                             if ($this->email->enviaEmail()) {

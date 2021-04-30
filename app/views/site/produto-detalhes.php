@@ -87,14 +87,14 @@
                                     <?php endif; ?>
                                 </div>
                                 <div class="col-md-6 text-center">
-                                    <a href="<?= BASE_URL; ?>contato">
+                                    <a href="<?= BASE_URL; ?>contato?produto=<?= $produto->id_produto; ?>">
                                         <button type="button" class="btn btn-solicitar-orcamento">SOLICITE UM ORÇAMENTO</button>
                                     </a>
                                     <p style="font-size: 13px; letter-spacing: 2px">SEM COMPROMISSO</p>
                                 </div>
                                 <?php else: ?>
                                 <div class="col-md-12 text-center">
-                                    <a href="<?= BASE_URL; ?>contato">
+                                    <a href="<?= BASE_URL; ?>contato?produto=<?= $produto->id_produto; ?>">
                                         <button type="button" class="btn btn-solicitar-orcamento">SOLICITE UM ORÇAMENTO</button>
                                     </a>
                                     <p style="font-size: 13px; letter-spacing: 2px">SEM COMPROMISSO</p>
